@@ -11,7 +11,8 @@ class DemoApplicationTests {
     void contextLoads() {
 
         String cityInfo = AddressUtil.getCityInfo("192.168.215.149");
-        System.out.println(cityInfo);
+        System.out.println("123");
+
     }
 
 
