@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljh.demo.system.mapper.MenuMapper">
+
+    <select id="findUserPermissions" resultType="menu">
+SELECT
+            m.perms
+        FROM
+            t_role r
+        LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id)
+        LEFT JOIN t_user u ON (u.user_id = ur.user_id)
+        LEFT JOIN t_role_menu rm ON (rm.role_id = r.role_id)
+        LEFT JOIN t_menu m ON (m.menu_id = rm.menu_id)
+        WHERE
+            u.username = #{username}
+        AND m.perms is not null
+        AND m.perms &lt;&gt; ''
+
+    </select>
+    <select id="findUserMenus" resultType="com.ljh.demo.system.entity.Menu">
+ SELECT
+            m.*
+        FROM
+            t_menu m
+        WHERE
+            m.type &lt;&gt; 1
+        AND m.MENU_ID IN (
+            SELECT DISTINCT
+                rm.menu_id
+            FROM
+                t_role_menu rm
+            LEFT JOIN t_role r ON (rm.role_id = r.role_id)
+            LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id)
+            LEFT JOIN t_user u ON (u.user_id = ur.user_id)
+            WHERE
+                u.username = #{username}
+        )
+        ORDER BY
+          m.order_num
+    </select>
+</mapper>

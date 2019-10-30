@@ -9,11 +9,7 @@ class DemoApplicationTests {
 
     @Test
     void contextLoads() {
-
         String cityInfo = AddressUtil.getCityInfo("192.168.215.149");
         System.out.println("123");
-
     }
-
-
 }
