@@ -10,6 +10,7 @@
     <modules>
         <module>shiro-chapter1</module>
         <module>shiro-chapter2</module>
+        <module>shiroauthen</module>
     </modules>
     <dependencies>
         <dependency>
@@ -37,6 +38,7 @@
             <artifactId>druid</artifactId>
             <version>0.2.23</version>
         </dependency>
+
     </dependencies>
 
 
