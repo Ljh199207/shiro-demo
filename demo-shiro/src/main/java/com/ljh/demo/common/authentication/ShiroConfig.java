@@ -92,11 +92,11 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(shiroRealm);
         // 配置 shiro session管理器
-    //    securityManager.setSessionManager(sessionManager());
+        securityManager.setSessionManager(sessionManager());
         //配置缓存
-   //     securityManager.setCacheManager(cacheManager());
+        securityManager.setCacheManager(cacheManager());
         // 配置 rememberMeCookie
-        //securityManager.setRememberMeManager(rememberMeManager());
+        securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
     }
 
@@ -123,7 +123,7 @@ public class ShiroConfig {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         Collection<SessionListener> listeners = new ArrayList<>();
         listeners.add(new ShiroSessionListener());
-        sessionManager.setGlobalSessionTimeout(shiroProperties.getSessionTimeout());
+        sessionManager.setGlobalSessionTimeout(shiroProperties.getSessionTimeout() * 1000L);
         sessionManager.setSessionListeners(listeners);
         sessionManager.setSessionDAO(redisSessionDAO());
         sessionManager.setSessionIdUrlRewritingEnabled(false);

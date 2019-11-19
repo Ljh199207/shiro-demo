@@ -25,6 +25,9 @@ import java.io.Serializable;
 import java.time.Duration;
 import java.util.Arrays;
 
+/**
+ * @author ljh
+ */
 @Configuration
 public class RedisConfigure extends CachingConfigurerSupport {
 

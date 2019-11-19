@@ -91,7 +91,6 @@ public class CaptchaUtil {
         }
         return StringUtils.equalsIgnoreCase(code, sessionCode);
     }
-
     private static void outCaptcha(int width, int height, int len, Font font, int cType, Integer vType, HttpServletRequest request, HttpServletResponse response) throws IOException {
         setHeader(response, cType);
         Captcha captcha = null;
@@ -115,7 +114,6 @@ public class CaptchaUtil {
         } catch (RedisConnectException e) {
             log.error("保存验证码异常", e);
         }
-
         captcha.out(response.getOutputStream());
     }
 
