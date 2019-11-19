@@ -1,4 +1,4 @@
-package com.example.springbootmybits.bean;
+package com.example.springbootmybits.mybatis.bean;
 
 import lombok.Data;
 

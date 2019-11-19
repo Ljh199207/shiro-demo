@@ -34,10 +34,12 @@ public class FebsStartedUpRunner implements ApplicationRunner {
             InetAddress address = InetAddress.getLocalHost();
             String url = String.format("http://%s:%s", address.getHostAddress(), port);
             String loginUrl = febsProperties.getLoginUrl();
-            if (StringUtils.isNotBlank(contextPath))
+            if (StringUtils.isNotBlank(contextPath)) {
                 url += contextPath;
-            if (StringUtils.isNotBlank(loginUrl))
+            }
+            if (StringUtils.isNotBlank(loginUrl)) {
                 url += loginUrl;
+            }
             log.info(" __    ___   _      ___   _     ____ _____  ____ ");
             log.info("/ /`  / / \\ | |\\/| | |_) | |   | |_   | |  | |_  ");
             log.info("\\_\\_, \\_\\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ ");

@@ -1,6 +1,6 @@
-package com.example.springbootmybits.service;
+package com.example.springbootmybits.mybatis.service;
 
-import com.example.springbootmybits.bean.Student;
+import com.example.springbootmybits.mybatis.bean.Student;
 
 /**
  * @author ljh

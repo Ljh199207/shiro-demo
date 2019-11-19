@@ -1,8 +1,8 @@
-package com.example.springbootmybits.service.impl;
+package com.example.springbootmybits.mybatis.service.impl;
 
-import com.example.springbootmybits.bean.Student;
-import com.example.springbootmybits.mapper.UserMapper;
-import com.example.springbootmybits.service.UserSerivce;
+import com.example.springbootmybits.mybatis.bean.Student;
+import com.example.springbootmybits.mybatis.mapper.UserMapper;
+import com.example.springbootmybits.mybatis.service.UserSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

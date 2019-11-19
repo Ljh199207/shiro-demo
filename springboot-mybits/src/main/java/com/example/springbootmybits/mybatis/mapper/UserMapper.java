@@ -1,6 +1,6 @@
-package com.example.springbootmybits.mapper;
+package com.example.springbootmybits.mybatis.mapper;
 
-import com.example.springbootmybits.bean.Student;
+import com.example.springbootmybits.mybatis.bean.Student;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 

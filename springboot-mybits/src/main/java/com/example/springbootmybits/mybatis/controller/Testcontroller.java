@@ -1,7 +1,7 @@
-package com.example.springbootmybits.controller;
+package com.example.springbootmybits.mybatis.controller;
 
-import com.example.springbootmybits.bean.Student;
-import com.example.springbootmybits.service.UserSerivce;
+import com.example.springbootmybits.mybatis.bean.Student;
+import com.example.springbootmybits.mybatis.service.UserSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
