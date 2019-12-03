@@ -4,7 +4,6 @@ import com.ljh.demo.common.controller.BaseController;
 import com.ljh.demo.common.entity.FebsConstant;
 import com.ljh.demo.common.entity.FebsResponse;
 import com.ljh.demo.common.entity.MenuTree;
-import com.ljh.demo.common.entity.QueryRequest;
 import com.ljh.demo.common.exception.FebsException;
 import com.ljh.demo.common.utils.FebsUtil;
 import com.ljh.demo.system.entity.Menu;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import java.util.Map;
 
 
 /**
@@ -52,22 +50,14 @@ public class MenuController extends BaseController {
         return new FebsResponse().data(userMenus);
     }
 
-
-
-    @GetMapping("menu")
+    @GetMapping("tree")
     @ResponseBody
     public FebsResponse getAllMenus(Menu menu) {
-        return new FebsResponse().success().data(menuService.findMenus(menu));
+        MenuTree<Menu> menus = this.menuService.findMenus(menu);
+        return new FebsResponse().success().data(menus.getChilds());
     }
 
-    @GetMapping("menu/list")
-    @ResponseBody
-    public FebsResponse menuList(QueryRequest request, Menu menu) {
-        Map<String, Object> dataTable = getDataTable(this.menuService.findMenus(request, menu));
-        return new FebsResponse().success().data(dataTable);
-    }
-
-    @PostMapping("menu")
+    @PostMapping
     @ResponseBody
     public FebsResponse addMenu(@Valid Menu menu) {
         this.menuService.createMenu(menu);
@@ -81,7 +71,7 @@ public class MenuController extends BaseController {
         return new FebsResponse().success();
     }
 
-    @PostMapping("menu/update")
+    @PostMapping("update")
     @ResponseBody
     public FebsResponse updateMenu(Menu menu) {
         this.menuService.updateMenu(menu);

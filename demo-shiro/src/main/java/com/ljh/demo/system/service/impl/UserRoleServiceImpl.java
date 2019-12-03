@@ -16,50 +16,50 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
-* 用户角色关联表 Service实现
-*
-* @author ljh
-* @date 2019-10-30 14:45:19
-*/
+ * 用户角色关联表 Service实现
+ *
+ * @author ljh
+ * @date 2019-10-30 14:45:19
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements IUserRoleService {
 
-@Autowired
-private UserRoleMapper userRoleMapper;
+    @Autowired
+    private UserRoleMapper userRoleMapper;
 
-@Override
-public IPage<UserRole> findUserRoles(QueryRequest request, UserRole userRole) {
-LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
+    @Override
+    public IPage<UserRole> findUserRoles(QueryRequest request, UserRole userRole) {
+        LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
 // TODO 设置查询条件
-Page<UserRole> page = new Page<>(request.getPageNum(), request.getPageSize());
-return this.page(page, queryWrapper);
-}
+        Page<UserRole> page = new Page<>(request.getPageNum(), request.getPageSize());
+        return this.page(page, queryWrapper);
+    }
 
-@Override
-public List<UserRole> findUserRoles(UserRole userRole) {
-LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
+    @Override
+    public List<UserRole> findUserRoles(UserRole userRole) {
+        LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
 // TODO 设置查询条件
-return this.baseMapper.selectList(queryWrapper);
-}
+        return this.baseMapper.selectList(queryWrapper);
+    }
 
-@Override
-@Transactional
-public void createUserRole(UserRole userRole) {
-this.save(userRole);
-}
+    @Override
+    @Transactional
+    public void createUserRole(UserRole userRole) {
+        this.save(userRole);
+    }
 
-@Override
-@Transactional
-public void updateUserRole(UserRole userRole) {
-this.saveOrUpdate(userRole);
-}
+    @Override
+    @Transactional
+    public void updateUserRole(UserRole userRole) {
+        this.saveOrUpdate(userRole);
+    }
 
-@Override
-@Transactional
-public void deleteUserRole(UserRole userRole) {
-LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
+    @Override
+    @Transactional
+    public void deleteUserRole(UserRole userRole) {
+        LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
 // TODO 设置删除条件
-this.remove(wrapper);
-}
+        this.remove(wrapper);
+    }
 }

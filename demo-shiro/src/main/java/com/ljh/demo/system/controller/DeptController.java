@@ -1,9 +1,9 @@
 package com.ljh.demo.system.controller;
 
 import com.ljh.demo.common.controller.BaseController;
+import com.ljh.demo.common.entity.DeptTree;
 import com.ljh.demo.common.entity.FebsConstant;
 import com.ljh.demo.common.entity.FebsResponse;
-import com.ljh.demo.common.entity.QueryRequest;
 import com.ljh.demo.common.utils.FebsUtil;
 import com.ljh.demo.system.entity.Dept;
 import com.ljh.demo.system.service.IDeptService;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
-import java.util.Map;
+import java.util.List;
 
 
 /**
@@ -40,15 +40,22 @@ public class DeptController extends BaseController {
 
     @GetMapping("dept")
     @ResponseBody
-    public FebsResponse getAllDepts(Dept dept) {
-        return new FebsResponse().success().data(deptService.findDepts(dept));
+    public FebsResponse getAllDepts() {
+        return new FebsResponse().success().data(deptService.findDepts());
     }
 
-    @GetMapping("dept/list")
+    @GetMapping("dept/select/tree")
     @ResponseBody
-    public FebsResponse deptList(QueryRequest request, Dept dept) {
-        Map<String, Object> dataTable = getDataTable(this.deptService.findDepts(request, dept));
-        return new FebsResponse().success().data(dataTable);
+    public FebsResponse deptList() {
+        List<DeptTree<Dept>> deptTree = this.deptService.findDepts();
+        return new FebsResponse().success().data(deptTree);
+    }
+
+    @GetMapping("dept/tree")
+    @ResponseBody
+    public FebsResponse getAllMenus(Dept dept) {
+        List<DeptTree<Dept>> deptTree = this.deptService.findDeptTree(dept);
+        return new FebsResponse().success().data(deptTree);
     }
 
     @PostMapping("dept")

@@ -75,4 +75,13 @@ public class ShiroRealm extends AuthorizingRealm {
         }
         return new SimpleAuthenticationInfo(user, password, getName());
     }
+    /**
+     * 清除当前用户权限缓存
+     * 使用方法：在需要清除用户权限的地方注入 ShiroRealm,
+     * 然后调用其 clearCache方法。
+     */
+    public void clearCache() {
+        PrincipalCollection principals = SecurityUtils.getSubject().getPrincipals();
+        super.clearCache(principals);
+    }
 }

@@ -1,6 +1,7 @@
 package com.ljh.demo.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -10,6 +11,7 @@ import com.ljh.demo.common.utils.TreeUtil;
 import com.ljh.demo.system.entity.Menu;
 import com.ljh.demo.system.mapper.MenuMapper;
 import com.ljh.demo.system.service.IMenuService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -40,10 +42,15 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
     }
 
     @Override
-    public List<Menu> findMenus(Menu menu) {
-        LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
-// TODO 设置查询条件
-        return this.baseMapper.selectList(queryWrapper);
+    public MenuTree<Menu> findMenus(Menu menu) {
+        QueryWrapper<Menu> queryWrapper = new QueryWrapper<>();
+        if (StringUtils.isNotBlank(menu.getMenuName())) {
+            queryWrapper.lambda().like(Menu::getMenuName, menu.getMenuName());
+        }
+        queryWrapper.lambda().orderByAsc(Menu::getOrderNum);
+        List<Menu> menus = this.baseMapper.selectList(queryWrapper);
+        List<MenuTree<Menu>> trees = this.convertMenus(menus);
+        return TreeUtil.buildMenuTree(trees);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.ljh.demo.handle;
 import com.ljh.demo.common.entity.FebsResponse;
 import com.ljh.demo.common.exception.FebsException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authc.AuthenticationException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(FebsException.class)
     public FebsResponse handleFebsException(FebsException e) {
         log.error("系统错误", e);
+        return new FebsResponse().code(HttpStatus.INTERNAL_SERVER_ERROR).message(e.getMessage());
+    }
+
+    @ExceptionHandler(value = AuthenticationException.class)
+    public FebsResponse handleAuthenticationException(AuthenticationException e) {
+        log.debug("AuthenticationException", e);
         return new FebsResponse().code(HttpStatus.INTERNAL_SERVER_ERROR).message(e.getMessage());
     }
 }

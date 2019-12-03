@@ -1,7 +1,9 @@
 package com.ljh.demo.common.utils;
 
 
+import com.ljh.demo.common.entity.DeptTree;
 import com.ljh.demo.common.entity.MenuTree;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,6 +79,34 @@ public class TreeUtil {
 
         return result;
     }*/
+
+    public static <T> List<DeptTree<T>> buildDeptTree(List<DeptTree<T>> nodes) {
+        if (nodes == null) {
+            return null;
+        }
+        List<DeptTree<T>> result = new ArrayList<>();
+        nodes.forEach(tDeptTree -> {
+            String pid = tDeptTree.getParentId();
+            if (pid == null || "0".equals(pid)) {
+                result.add(tDeptTree);
+                return;
+            }
+            for (DeptTree<T> deptTree : nodes) {
+                String id = deptTree.getId();
+                if (StringUtils.isNotBlank(id) && id.equals(pid)) {
+                    if (deptTree.getChildren() == null) {
+                        deptTree.initChildren();
+                    }
+                    deptTree.getChildren().add(tDeptTree);
+                    tDeptTree.setHasParent(true);
+                    deptTree.setHasChild(true);
+                    return;
+                }
+            }
+        });
+        return result;
+    }
+
 
     public static <T> List<MenuTree<T>> buildList(List<MenuTree<T>> nodes, String idParam) {
         if (nodes == null) {

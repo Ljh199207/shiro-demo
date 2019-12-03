@@ -31,7 +31,7 @@ public interface IMenuService extends IService<Menu> {
      * @param menu menu
      * @return List<Menu>
      */
-    List<Menu> findMenus(Menu menu);
+    MenuTree<Menu> findMenus(Menu menu);
 
     /**
      * 新增

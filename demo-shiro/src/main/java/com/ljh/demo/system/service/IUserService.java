@@ -56,4 +56,20 @@ public interface IUserService extends IService<User> {
 
 
     User findByName(String userName);
+
+
+    /**
+     * 更新用户登录时间
+     *
+     * @param username 用户名
+     */
+    void updateLoginTime(String username);
+    /**
+     * 查找用户详细信息
+     *
+     * @param request request
+     * @param user    用户对象，用于传递查询条件
+     * @return IPage
+     */
+    IPage<User> findUserDetail(User user, QueryRequest request);
 }

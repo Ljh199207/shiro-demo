@@ -3,8 +3,10 @@ package com.ljh.demo.common.utils;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.ljh.demo.common.entity.FebsConstant;
+import com.ljh.demo.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Matcher;
@@ -18,7 +20,14 @@ import java.util.stream.IntStream;
  */
 @Slf4j
 public class FebsUtil {
-
+    /**
+     * 获取当前登录用户
+     *
+     * @return User
+     */
+    public static User getCurrentUser() {
+        return (User) SecurityUtils.getSubject().getPrincipal();
+    }
     /**
      * 驼峰转下划线
      *

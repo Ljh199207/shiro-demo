@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ljh.demo.common.entity.FebsConstant;
 import com.ljh.demo.common.entity.QueryRequest;
+import com.ljh.demo.common.utils.SortUtil;
 import com.ljh.demo.system.entity.Role;
 import com.ljh.demo.system.mapper.RoleMapper;
 import com.ljh.demo.system.service.IRoleService;
@@ -30,10 +32,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
 
     @Override
     public IPage<Role> findRoles(QueryRequest request, Role role) {
-        LambdaQueryWrapper<Role> queryWrapper = new LambdaQueryWrapper<>();
-// TODO 设置查询条件
         Page<Role> page = new Page<>(request.getPageNum(), request.getPageSize());
-        return this.page(page, queryWrapper);
+        SortUtil.handlePageSort(request, page, "createTime", FebsConstant.ORDER_DESC, false);
+        return this.baseMapper.findRolePage(page, role);
     }
 
     @Override

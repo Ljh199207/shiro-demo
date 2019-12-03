@@ -1,11 +1,12 @@
 package com.ljh.demo.system.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.wuwenze.poi.annotation.ExcelField;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
@@ -24,6 +25,7 @@ import java.util.Date;
  */
 @Data
 @TableName("t_user")
+@ExcelTarget("userEntity")
 public class User implements Serializable {
 
     private static final long serialVersionUID = -4352868070794165001L;
@@ -63,7 +65,7 @@ public class User implements Serializable {
      */
     @TableField("USERNAME")
     @Size(min = 4, max = 10, message = "{range}")
-    @ExcelField(value = "用户名")
+    @Excel(name = "用户名",width = 20)
     private String username;
 
     /**
@@ -84,14 +86,14 @@ public class User implements Serializable {
     @TableField("EMAIL")
     @Size(max = 50, message = "{noMoreThan}")
     @Email(message = "{email}")
-    @ExcelField(value = "邮箱")
+    @Excel(name = "邮箱",width = 20)
     private String email;
 
     /**
      * 联系电话
      */
     @TableField("MOBILE")
-    @ExcelField(value = "联系电话")
+    @Excel(name = "联系电话",width = 30)
     private String mobile;
 
     /**
@@ -99,25 +101,28 @@ public class User implements Serializable {
      */
     @TableField("STATUS")
     @NotBlank(message = "{required}")
-    @ExcelField(value = "状态", writeConverterExp = "0=锁定,1=有效")
+    @Excel(name = "状态", replace = { "锁定_0", "有效_1" },width = 20)
     private String status;
 
     /**
      * 创建时间
      */
     @TableField("CREATE_TIME")
+    @Excel(name = "创建时间",width = 40, format = "yyyy-MM-dd")
     private Date createTime;
 
     /**
      * 修改时间
      */
     @TableField("MODIFY_TIME")
+    @Excel(name = "修改时间", format = "yyyy-MM-dd",width = 40)
     private Date modifyTime;
 
     /**
      * 最近访问时间
      */
     @TableField("LAST_LOGIN_TIME")
+    @Excel(name = "最近访问时间", format = "yyyy-MM-dd",width = 40)
     @JsonFormat(pattern = "yyyy年MM月dd日 HH时mm分ss秒", timezone = "GMT+8")
     private Date lastLoginTime;
 
@@ -126,7 +131,7 @@ public class User implements Serializable {
      */
     @TableField("SSEX")
     @NotBlank(message = "{required}")
-    @ExcelField(value = "性别", writeConverterExp = "0=男,1=女,2=保密")
+    @Excel(name = "性别", replace = { "男_0", "女_1","保密_2" },width = 20)
     private String sex;
 
     /**
@@ -152,13 +157,13 @@ public class User implements Serializable {
      */
     @TableField("DESCRIPTION")
     @Size(max = 100, message = "{noMoreThan}")
-    @ExcelField(value = "个人描述")
+    @Excel(name = "个人描述",width = 40)
     private String description;
 
     /**
      * 部门名称
      */
-    @ExcelField(value = "部门")
+    @Excel(name = "部门",width = 20)
     @TableField(exist = false)
     private String deptName;
 
@@ -173,7 +178,7 @@ public class User implements Serializable {
     @TableField(exist = false)
     private String roleId;
 
-    @ExcelField(value = "角色")
+    @Excel(name = "角色",width = 20)
     @TableField(exist = false)
     private String roleName;
 
