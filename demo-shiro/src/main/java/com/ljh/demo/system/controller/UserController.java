@@ -7,6 +7,7 @@ import com.ljh.demo.common.entity.FebsResponse;
 import com.ljh.demo.common.entity.QueryRequest;
 import com.ljh.demo.common.utils.ExcelUtil;
 import com.ljh.demo.common.utils.FebsUtil;
+import com.ljh.demo.logging.annotation.Log;
 import com.ljh.demo.system.entity.User;
 import com.ljh.demo.system.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -81,6 +82,7 @@ public class UserController extends BaseController {
         return new FebsResponse().success();
     }
 
+    @Log(operation = "修改用户")
     @PostMapping("user/update")
     @ResponseBody
     public FebsResponse updateUser(User user) {

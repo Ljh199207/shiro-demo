@@ -11,6 +11,8 @@
         <module>shiro-chapter1</module>
         <module>shiro-chapter2</module>
         <module>shiroauthen</module>
+        <module>springdemo</module>
+        <module>mybatis-my</module>
     </modules>
     <dependencies>
         <dependency>
