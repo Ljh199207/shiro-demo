@@ -10,7 +10,7 @@ import org.mapstruct.ReportingPolicy;
  * @author Zheng Jie
  * @date 2019-5-23
  */
-@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RoleSmallMapper extends BaseMapper<RoleSmallDTO, Role> {
 
 }

@@ -21,6 +21,7 @@ public class SmsAuthenticationFilter extends AbstractAuthenticationProcessingFil
 
     private String mobileParameter = MOBILE_KEY;
     private boolean postOnly = true;
+
     public SmsAuthenticationFilter() {
         super(new AntPathRequestMatcher("/login/mobile", "POST"));
     }

@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2019-11-27 15:09
  */
 @Service
-@SuppressWarnings({"unchecked","all"})
+@SuppressWarnings({"unchecked", "all"})
 public class OnlineUserService {
     @Value("${jwt.expiration}")
     private Long expiration;
@@ -37,37 +37,38 @@ public class OnlineUserService {
     public OnlineUserService(RedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
-    public void save(JwtUser jwtUser, String token, HttpServletRequest request){
+
+    public void save(JwtUser jwtUser, String token, HttpServletRequest request) {
         String job = jwtUser.getDept() + "/" + jwtUser.getJob();
         String ip = StringUtils.getIp(request);
         String browser = StringUtils.getBrowser(request);
         String address = StringUtils.getCityInfo(ip);
         OnlineUser onlineUser = null;
         try {
-            onlineUser = new OnlineUser(jwtUser.getUsername(), job, browser , ip, address, EncryptUtils.desEncrypt(token), new Date());
+            onlineUser = new OnlineUser(jwtUser.getUsername(), job, browser, ip, address, EncryptUtils.desEncrypt(token), new Date());
         } catch (Exception e) {
             e.printStackTrace();
         }
         redisTemplate.opsForValue().set(onlineKey + token, onlineUser);
-        redisTemplate.expire(onlineKey + token,expiration, TimeUnit.MILLISECONDS);
+        redisTemplate.expire(onlineKey + token, expiration, TimeUnit.MILLISECONDS);
     }
 
-    public Page<OnlineUser> getAll(String filter, Pageable pageable){
+    public Page<OnlineUser> getAll(String filter, Pageable pageable) {
         List<OnlineUser> onlineUsers = getAll(filter);
         return new PageImpl<OnlineUser>(
-                PageUtil.toPage(pageable.getPageNumber(),pageable.getPageSize(),onlineUsers),
+                PageUtil.toPage(pageable.getPageNumber(), pageable.getPageSize(), onlineUsers),
                 pageable,
                 onlineUsers.size());
     }
 
-    public List<OnlineUser> getAll(String filter){
+    public List<OnlineUser> getAll(String filter) {
         List<String> keys = new ArrayList<>(redisTemplate.keys(onlineKey + "*"));
         Collections.reverse(keys);
         List<OnlineUser> onlineUsers = new ArrayList<>();
         for (String key : keys) {
             OnlineUser onlineUser = (OnlineUser) redisTemplate.opsForValue().get(key);
-            if(StringUtils.isNotBlank(filter)){
-                if(onlineUser.toString().contains(filter)){
+            if (StringUtils.isNotBlank(filter)) {
+                if (onlineUser.toString().contains(filter)) {
                     onlineUsers.add(onlineUser);
                 }
             } else {
@@ -93,7 +94,7 @@ public class OnlineUserService {
     public void download(List<OnlineUser> all, HttpServletResponse response) throws IOException {
         List<Map<String, Object>> list = new ArrayList<>();
         for (OnlineUser user : all) {
-            Map<String,Object> map = new LinkedHashMap<>();
+            Map<String, Object> map = new LinkedHashMap<>();
             map.put("用户名", user.getUserName());
             map.put("岗位", user.getJob());
             map.put("登录IP", user.getIp());

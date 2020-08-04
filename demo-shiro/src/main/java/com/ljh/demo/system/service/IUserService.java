@@ -54,7 +54,6 @@ public interface IUserService extends IService<User> {
     void deleteUser(User user);
 
 
-
     User findByName(String userName);
 
 
@@ -64,6 +63,7 @@ public interface IUserService extends IService<User> {
      * @param username 用户名
      */
     void updateLoginTime(String username);
+
     /**
      * 查找用户详细信息
      *

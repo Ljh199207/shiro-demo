@@ -7,7 +7,10 @@ import com.example.springbootmybits.mybatis.bean.Student;
  */
 public interface UserSerivce {
     int add(Student student);
+
     int update(Student student);
+
     int deleteBySno(String sno);
+
     Student queryStudentBySno(String sno);
 }

@@ -29,9 +29,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
-* @date 2019-04-10
-*/
+ * @author Zheng Jie
+ * @date 2019-04-10
+ */
 @Service
 @CacheConfig(cacheNames = "dict")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -48,7 +48,7 @@ public class DictServiceImpl implements DictService {
 
     @Override
     @Cacheable
-    public Map<String, Object> queryAll(DictQueryCriteria dict, Pageable pageable){
+    public Map<String, Object> queryAll(DictQueryCriteria dict, Pageable pageable) {
         Page<Dict> page = dictRepository.findAll((root, query, cb) -> QueryHelp.getPredicate(root, dict, cb), pageable);
         return PageUtil.toPage(page.map(dictMapper::toDto));
     }
@@ -63,7 +63,7 @@ public class DictServiceImpl implements DictService {
     @Cacheable(key = "#p0")
     public DictDTO findById(Long id) {
         Dict dict = dictRepository.findById(id).orElseGet(Dict::new);
-        ValidationUtil.isNull(dict.getId(),"Dict","id",id);
+        ValidationUtil.isNull(dict.getId(), "Dict", "id", id);
         return dictMapper.toDto(dict);
     }
 
@@ -79,7 +79,7 @@ public class DictServiceImpl implements DictService {
     @Transactional(rollbackFor = Exception.class)
     public void update(Dict resources) {
         Dict dict = dictRepository.findById(resources.getId()).orElseGet(Dict::new);
-        ValidationUtil.isNull( dict.getId(),"Dict","id",resources.getId());
+        ValidationUtil.isNull(dict.getId(), "Dict", "id", resources.getId());
         resources.setId(dict.getId());
         dictRepository.save(resources);
     }
@@ -95,9 +95,9 @@ public class DictServiceImpl implements DictService {
     public void download(List<DictDTO> dictDTOS, HttpServletResponse response) throws IOException {
         List<Map<String, Object>> list = new ArrayList<>();
         for (DictDTO dictDTO : dictDTOS) {
-            if(CollectionUtil.isNotEmpty(dictDTO.getDictDetails())){
+            if (CollectionUtil.isNotEmpty(dictDTO.getDictDetails())) {
                 for (DictDetailDTO dictDetail : dictDTO.getDictDetails()) {
-                    Map<String,Object> map = new LinkedHashMap<>();
+                    Map<String, Object> map = new LinkedHashMap<>();
                     map.put("字典名称", dictDTO.getName());
                     map.put("字典描述", dictDTO.getRemark());
                     map.put("字典标签", dictDetail.getLabel());
@@ -106,7 +106,7 @@ public class DictServiceImpl implements DictService {
                     list.add(map);
                 }
             } else {
-                Map<String,Object> map = new LinkedHashMap<>();
+                Map<String, Object> map = new LinkedHashMap<>();
                 map.put("字典名称", dictDTO.getName());
                 map.put("字典描述", dictDTO.getRemark());
                 map.put("字典标签", null);

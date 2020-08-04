@@ -28,6 +28,7 @@ public class FebsUtil {
     public static User getCurrentUser() {
         return (User) SecurityUtils.getSubject().getPrincipal();
     }
+
     /**
      * 驼峰转下划线
      *

@@ -16,17 +16,18 @@ public class RedsiSetTests {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Test
-    public void add(){
-        String key ="set";
-        String value ="setvalue";
-        String value1 ="setvalue1";
-        String value2 ="setvalue2";
-        redisTemplate.opsForSet().add(key,value,value1,value2);
+    public void add() {
+        String key = "set";
+        String value = "setvalue";
+        String value1 = "setvalue1";
+        String value2 = "setvalue2";
+        redisTemplate.opsForSet().add(key, value, value1, value2);
         System.out.println(redisTemplate.opsForSet().members(key));
     }
+
     @Test
-    public void testSend(){
-        redisTemplate.convertAndSend("TOPIC_USERNAME","哈哈哈，redis 订阅信息");
+    public void testSend() {
+        redisTemplate.convertAndSend("TOPIC_USERNAME", "哈哈哈，redis 订阅信息");
         System.out.println("消息发送成功了");
     }
 }

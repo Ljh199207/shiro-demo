@@ -8,9 +8,9 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
-* @author Zheng Jie
-* @date 2019-04-10
-*/
+ * @author Zheng Jie
+ * @date 2019-04-10
+ */
 @Getter
 @Setter
 public class DictDTO implements Serializable {

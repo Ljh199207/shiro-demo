@@ -38,8 +38,6 @@ public class RedisConfig {
     }
 
 
-
-
     @Bean
     @ConditionalOnMissingBean(StringRedisTemplate.class)
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {

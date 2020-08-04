@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * @author user
  */
-public interface PermissionRepository extends JpaRepository<Permission,Long> {
+public interface PermissionRepository extends JpaRepository<Permission, Long> {
 }

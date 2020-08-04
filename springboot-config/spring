@@ -1,0 +1,4 @@
+一.实例化一个bean
+   1， instantiation with a constructor; 构造器
+   2， instantiation with static factory; 静态工厂
+   3， instantiantion By Using instance factory method ;实例工厂方法

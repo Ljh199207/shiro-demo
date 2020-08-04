@@ -21,6 +21,6 @@ public class Author {
     @Column(nullable = false, length = 20)
     private String name;//姓名
 
-    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Article> articleList;
 }

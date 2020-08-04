@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class MyUserDetailService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // 模拟一个用户，替代数据库获取逻辑

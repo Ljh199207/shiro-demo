@@ -22,12 +22,12 @@ public class MyRealm4 implements Realm {
 
     @Override
     public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String username = (String)token.getPrincipal();
-        String password = new String((char[])token.getCredentials());
-        if(!"zhang".equals(username)) {
+        String username = (String) token.getPrincipal();
+        String password = new String((char[]) token.getCredentials());
+        if (!"zhang".equals(username)) {
             throw new UnknownAccountException();
         }
-        if(!"123".equals(password)) {
+        if (!"123".equals(password)) {
             throw new IncorrectCredentialsException();
         }
         return new SimpleAuthenticationInfo(username, password, getName());

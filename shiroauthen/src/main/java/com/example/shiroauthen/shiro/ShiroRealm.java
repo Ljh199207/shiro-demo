@@ -8,10 +8,11 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ShiroRealm  extends AuthorizingRealm {
+public class ShiroRealm extends AuthorizingRealm {
 
     @Autowired
     private UserMapper userMapper;
+
     /**
      * 获取用户角色和权限
      */
@@ -19,12 +20,13 @@ public class ShiroRealm  extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         return null;
     }
+
     /**
      * 登录认证
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String userName  = (String) token.getPrincipal();
+        String userName = (String) token.getPrincipal();
         String passWord = new String((char[]) token.getCredentials());
         System.out.println("用户" + userName + "认证-----ShiroRealm.doGetAuthenticationInfo");
         // 通过用户名到数据库查询用户信息

@@ -192,7 +192,7 @@
             }
             febs.post(ctx + 'user/theme/update', data.field, function () {
                 _currentData = data.field;
-                febs.modal.confirm('修改成功','是否马上刷新页面生效？',function () {
+                febs.modal.confirm('修改成功', '是否马上刷新页面生效？', function () {
                     window.location.reload();
                 });
             });

@@ -9,15 +9,15 @@
     <!--查询数据库下面的表-->
     <select id="getTables" resultType="table" parameterType="string">
         SELECT
-            CREATE_TIME createTime,
-            UPDATE_TIME updateTime,
-            TABLE_ROWS dataRows,
-            TABLE_NAME name,
-            TABLE_COMMENT remark
+        CREATE_TIME createTime,
+        UPDATE_TIME updateTime,
+        TABLE_ROWS dataRows,
+        TABLE_NAME name,
+        TABLE_COMMENT remark
         FROM
-            information_schema.TABLES
+        information_schema.TABLES
         WHERE
-            TABLE_SCHEMA = #{schemaName}
+        TABLE_SCHEMA = #{schemaName}
         <if test="tableName != null and tableName != ''">
             AND TABLE_NAME = #{tableName}
         </if>
@@ -28,9 +28,9 @@
         SELECT
         COLUMN_NAME name,
         CASE
-            COLUMN_key
+        COLUMN_key
         WHEN 'PRI' THEN
-                1 ELSE 0
+        1 ELSE 0
         END isKey,
         DATA_TYPE type,
         COLUMN_COMMENT remark

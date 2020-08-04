@@ -47,7 +47,7 @@ public class Menu implements Serializable {
     @Column(name = "permission")
     private String permission;
 
-    @Column(unique = true,name = "component_name")
+    @Column(unique = true, name = "component_name")
     private String componentName;
 
     private String icon;
@@ -59,7 +59,7 @@ public class Menu implements Serializable {
     private Boolean hidden;
 
     // 上级菜单ID
-    @Column(name = "pid",nullable = false)
+    @Column(name = "pid", nullable = false)
     private Long pid;
 
     // 是否为外链 true/false
@@ -74,7 +74,8 @@ public class Menu implements Serializable {
     @CreationTimestamp
     private Timestamp createTime;
 
-    public @interface Update {}
+    public @interface Update {
+    }
 
     @Override
     public boolean equals(Object o) {

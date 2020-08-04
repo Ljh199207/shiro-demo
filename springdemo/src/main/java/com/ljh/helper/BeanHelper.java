@@ -22,6 +22,7 @@ public final class BeanHelper {
             BEAN_MAP.put(beanClass, obj);
         }
     }
+
     /**
      * 获取 Bean 容器
      */

@@ -91,6 +91,7 @@ public class CaptchaUtil {
         }
         return StringUtils.equalsIgnoreCase(code, sessionCode);
     }
+
     private static void outCaptcha(int width, int height, int len, Font font, int cType, Integer vType, HttpServletRequest request, HttpServletResponse response) throws IOException {
         setHeader(response, cType);
         Captcha captcha = null;

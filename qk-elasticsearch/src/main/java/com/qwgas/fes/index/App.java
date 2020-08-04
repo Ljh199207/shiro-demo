@@ -30,33 +30,37 @@ public class App extends HightClient {
         IndexResponse indexResponse = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
         System.out.println(indexResponse.getIndex());
     }
+
     @Test
     public void testIndex2() throws IOException {
-        Map<String,Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("user", "kimchy");
         map.put("postDate", LocalDateTime.now());
         map.put("message", "trying out Elasticsearch");
         IndexRequest indexRequest = new IndexRequest("posts").id("1").source(map);
-        IndexResponse indexResponse = restHighLevelClient.index(indexRequest,RequestOptions.DEFAULT);
+        IndexResponse indexResponse = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
         System.out.println(indexResponse.getIndex());
-        System.out.println(indexResponse.getId()+"----"+indexResponse.getSeqNo());
+        System.out.println(indexResponse.getId() + "----" + indexResponse.getSeqNo());
     }
+
     @Test
     public void testIndex3() throws IOException {
         XContentBuilder xContentBuilder = XContentFactory.jsonBuilder();
         xContentBuilder.startObject();
         {
             xContentBuilder.field("user", "kimchy");
-            xContentBuilder.timeField("postDate",LocalDateTime.now());
+            xContentBuilder.timeField("postDate", LocalDateTime.now());
             xContentBuilder.field("message", "trying out Elasticsearch");
         }
         xContentBuilder.endObject();
         IndexRequest indexRequest = new IndexRequest("posts").id("2").source(xContentBuilder);
         indexRequest.routing("routing");
         indexRequest.timeout(TimeValue.timeValueSeconds(1));
-        IndexResponse indexResponse = restHighLevelClient.index(indexRequest,RequestOptions.DEFAULT);
+        IndexResponse indexResponse = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
         System.out.println(indexResponse.toString());
         System.out.println(indexResponse.getLocation("routing"));
 
     }
+
+
 }

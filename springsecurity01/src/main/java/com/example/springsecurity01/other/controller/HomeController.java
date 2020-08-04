@@ -18,12 +18,12 @@ public class HomeController {
 
     @GetMapping({"", "/", "/index"})
     public String index(Model model) {
-      Object principal =   SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if("anonymousUser".equals(principal)) {
-            model.addAttribute("name","anonymous");
-        }else {
-            User user = (User)principal;
-            model.addAttribute("name",user.getUsername());
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if ("anonymousUser".equals(principal)) {
+            model.addAttribute("name", "anonymous");
+        } else {
+            User user = (User) principal;
+            model.addAttribute("name", user.getUsername());
         }
         return "/index";
     }

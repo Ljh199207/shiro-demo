@@ -22,7 +22,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements I${className}Service {
+public class ${className}ServiceImpl extends ServiceImpl
+<${className}Mapper, ${className}> implements I${className}Service {
 
 @Autowired
 private ${className}Mapper ${className?uncap_first}Mapper;

@@ -50,12 +50,12 @@ public class GeneratorController extends BaseController {
     }
 
     @PostMapping
-    public void generate(@RequestBody List<GenerateParam> generateParams,HttpServletResponse response) throws Exception {
+    public void generate(@RequestBody List<GenerateParam> generateParams, HttpServletResponse response) throws Exception {
         TGeneratorConfig generatorConfig = generatorConfigService.findGeneratorConfig();
         if (generatorConfig == null) {
             throw new FebsException("代码生成配置为空");
         }
-        if(generateParams!=null){
+        if (generateParams != null) {
             generateParams.forEach(generateParam -> {
                 String className = generateParam.getName();
                 if (GeneratorConfig.TRIM_YES.equals(generatorConfig.getIsTrim())) {

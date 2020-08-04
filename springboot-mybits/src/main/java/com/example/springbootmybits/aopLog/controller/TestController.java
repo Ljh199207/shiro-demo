@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @Log("执行方法一")
     @GetMapping("/one")
-    public void methodOne(String name) { }
+    public void methodOne(String name) {
+    }
 
     @Log("执行方法二")
     @GetMapping("/two")
@@ -22,5 +23,6 @@ public class TestController {
 
     @Log("执行方法三")
     @GetMapping("/three")
-    public void methodThree(String name, String age) { }
+    public void methodThree(String name, String age) {
+    }
 }

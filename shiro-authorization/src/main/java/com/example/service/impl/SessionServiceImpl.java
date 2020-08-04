@@ -21,6 +21,7 @@ import java.util.List;
 public class SessionServiceImpl implements SessionService {
     @Autowired
     private SessionDAO sessionDAO;
+
     @Override
     public List<UserOnline> list() {
         List<UserOnline> list = new ArrayList<>();

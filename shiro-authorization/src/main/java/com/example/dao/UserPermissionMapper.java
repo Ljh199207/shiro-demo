@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 public interface UserPermissionMapper {
 
-	List<Permission> findByUserName(@Param("userName") String userName);
+    List<Permission> findByUserName(@Param("userName") String userName);
 }

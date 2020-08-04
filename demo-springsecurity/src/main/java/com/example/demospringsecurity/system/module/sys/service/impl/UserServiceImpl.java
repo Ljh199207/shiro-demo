@@ -24,9 +24,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @author LJH
-* @date 2019-11-21
-*/
+ * @author LJH
+ * @date 2019-11-21
+ */
 @Service
 @CacheConfig(cacheNames = "user")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -49,6 +49,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO create(User resources) {
+
+
         return null;
     }
 
@@ -65,7 +67,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO findByName(String userName) {
         User user;
-        if(ValidationUtil.isEmail(userName)){
+        if (ValidationUtil.isEmail(userName)) {
             user = userRepository.findByEmail(userName);
         } else {
             user = userRepository.findByUsername(userName);
@@ -93,14 +95,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String,Object> queryAll(UserQueryCriteria criteria, Pageable pageable) {
-        Page<User> page = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
+    public Map<String, Object> queryAll(UserQueryCriteria criteria, Pageable pageable) {
+        Page<User> page = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), pageable);
         return PageUtil.toPage(page.map(userMapper::toDto));
     }
 
     @Override
-    public List<UserDTO> queryAll(UserQueryCriteria criteria){
-        return userMapper.toDto(userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder)));
+    public List<UserDTO> queryAll(UserQueryCriteria criteria) {
+        return userMapper.toDto(userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder)));
     }
 
     @Override

@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
-* @date 2019-04-10
-*/
+ * @author Zheng Jie
+ * @date 2019-04-10
+ */
 public interface DictService {
 
-    Map<String,Object> queryAll(DictQueryCriteria dict, Pageable pageable);
+    Map<String, Object> queryAll(DictQueryCriteria dict, Pageable pageable);
 
     List<DictDTO> queryAll(DictQueryCriteria dict);
 

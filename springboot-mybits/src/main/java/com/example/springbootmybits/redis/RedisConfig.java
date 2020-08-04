@@ -14,18 +14,18 @@ import java.util.Arrays;
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
-    public KeyGenerator keyGenerator(){
-       return  new KeyGenerator() {
-           @Override
-           public Object generate(Object target, Method method, Object... params) {
-               StringBuilder sb = new StringBuilder();
-               sb.append(target.getClass().getName());
-               sb.append(method.getName());
-               if(params!=null&&params.length>0){
-                   Arrays.stream(params).forEach(e->sb.append(e.toString()));
-               }
-               return sb.toString();
-           }
-       };
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(target.getClass().getName());
+                sb.append(method.getName());
+                if (params != null && params.length > 0) {
+                    Arrays.stream(params).forEach(e -> sb.append(e.toString()));
+                }
+                return sb.toString();
+            }
+        };
     }
 }

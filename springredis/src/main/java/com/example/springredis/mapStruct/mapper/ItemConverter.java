@@ -16,13 +16,13 @@ import org.mapstruct.factory.Mappers;
 public interface ItemConverter {
     ItemConverter INSTANCE = Mappers.getMapper(ItemConverter.class);
 
-   @Mappings({
-           @Mapping(source = "sku.id",target = "skuId"),
-           @Mapping(source = "sku.code",target = "skuCode"),
-           @Mapping(source = "sku.price",target = "skuPrice"),
-           @Mapping(source = "item.id",target = "itemId"),
-           @Mapping(source = "item.title",target = "itemName")
-   })
+    @Mappings({
+            @Mapping(source = "sku.id", target = "skuId"),
+            @Mapping(source = "sku.code", target = "skuCode"),
+            @Mapping(source = "sku.price", target = "skuPrice"),
+            @Mapping(source = "item.id", target = "itemId"),
+            @Mapping(source = "item.title", target = "itemName")
+    })
     SkuDTO domain2dto(Item item, Sku sku);
 
 }

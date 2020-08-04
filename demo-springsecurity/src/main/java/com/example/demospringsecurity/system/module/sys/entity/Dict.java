@@ -12,13 +12,13 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
-* @author Zheng Jie
-* @date 2019-04-10
-*/
+ * @author Zheng Jie
+ * @date 2019-04-10
+ */
 @Entity
 @Getter
 @Setter
-@Table(name="dict")
+@Table(name = "dict")
 public class Dict implements Serializable {
 
     @Id
@@ -27,7 +27,7 @@ public class Dict implements Serializable {
     @NotNull(groups = Update.class)
     private Long id;
 
-    @Column(name = "name",nullable = false,unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     @NotBlank
     private String name;
 
@@ -38,8 +38,9 @@ public class Dict implements Serializable {
     @CreationTimestamp
     private Timestamp createTime;
 
-    @OneToMany(mappedBy = "dict",cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "dict", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<DictDetail> dictDetails;
 
-    public @interface Update {}
+    public @interface Update {
+    }
 }

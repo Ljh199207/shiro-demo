@@ -21,10 +21,10 @@ public interface BaseMapper<D, E> {
     /**
      * DTO集合转Entity集合
      */
-    List <E> toEntity(List<D> dtoList);
+    List<E> toEntity(List<D> dtoList);
 
     /**
      * Entity集合转DTO集合
      */
-    List <D> toDto(List<E> entityList);
+    List<D> toDto(List<E> entityList);
 }

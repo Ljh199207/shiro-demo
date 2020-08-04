@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserInfoServiceImpl implements UserInfoService {
     @Autowired
     private UserInfoRepository userInfoRepository;
+
     @Override
     public UserInfo findByUsername(String username) {
         return userInfoRepository.findByUsername(username);

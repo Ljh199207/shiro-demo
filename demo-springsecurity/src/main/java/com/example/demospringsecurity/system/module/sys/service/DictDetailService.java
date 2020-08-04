@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
-* @date 2019-04-10
-*/
+ * @author Zheng Jie
+ * @date 2019-04-10
+ */
 public interface DictDetailService {
 
     DictDetailDTO findById(Long id);

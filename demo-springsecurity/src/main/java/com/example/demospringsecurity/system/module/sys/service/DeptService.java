@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
-* @author Zheng Jie
-* @date 2019-03-25
-*/
+ * @author Zheng Jie
+ * @date 2019-03-25
+ */
 public interface DeptService {
 
     List<DeptDTO> queryAll(DeptQueryCriteria criteria);

@@ -18,7 +18,7 @@ public class MyAnnotationListener {
 
     @Async
     @EventListener
-    public void listener2(MyTestEvent event){
+    public void listener2(MyTestEvent event) {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -26,8 +26,9 @@ public class MyAnnotationListener {
         }
         System.out.println("注解监听器2:" + event.getMsg());
     }
+
     @Bean
-    public ThreadPoolTaskExecutor asyncThreadPoolTaskExecutor(){
+    public ThreadPoolTaskExecutor asyncThreadPoolTaskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(5);
         executor.setMaxPoolSize(20);

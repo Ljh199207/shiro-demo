@@ -6,11 +6,11 @@ import com.ljh.demo.system.entity.Menu;
 import java.util.List;
 
 /**
-* 菜单表 Mapper
-*
-* @author ljh
-* @date 2019-10-30 14:45:19
-*/
+ * 菜单表 Mapper
+ *
+ * @author ljh
+ * @date 2019-10-30 14:45:19
+ */
 public interface MenuMapper extends BaseMapper<Menu> {
 
     List<Menu> findUserPermissions(String userName);

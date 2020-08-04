@@ -23,7 +23,8 @@ public class Role implements Serializable {
         this.name = name;
         this.description = description;
     }
-    public Role(){
+
+    public Role() {
 
     }
 }

@@ -11,13 +11,13 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
-* @author Zheng Jie
-* @date 2019-03-29
-*/
+ * @author Zheng Jie
+ * @date 2019-03-29
+ */
 @Entity
 @Getter
 @Setter
-@Table(name="job")
+@Table(name = "job")
 public class Job implements Serializable {
 
     @Id
@@ -26,7 +26,7 @@ public class Job implements Serializable {
     @NotNull(groups = Update.class)
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "name", nullable = false)
     @NotBlank
     private String name;
 
@@ -34,7 +34,7 @@ public class Job implements Serializable {
     @NotNull
     private Long sort;
 
-    @Column(name = "enabled",nullable = false)
+    @Column(name = "enabled", nullable = false)
     @NotNull
     private Boolean enabled;
 
@@ -46,5 +46,6 @@ public class Job implements Serializable {
     @CreationTimestamp
     private Timestamp createTime;
 
-    public @interface Update {}
+    public @interface Update {
+    }
 }

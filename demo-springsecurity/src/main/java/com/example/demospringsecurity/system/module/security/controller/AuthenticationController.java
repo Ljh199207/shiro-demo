@@ -56,7 +56,7 @@ public class AuthenticationController {
     @ApiOperation("登录授权")
     @AnonymousAccess
     @PostMapping(value = "/login")
-    public ResponseEntity login(@Validated @RequestBody AuthUser authUser, HttpServletRequest request){
+    public ResponseEntity login(@Validated @RequestBody AuthUser authUser, HttpServletRequest request) {
 
         // 查询验证码
         String code = redisService.getCodeVal(authUser.getUuid());
@@ -70,11 +70,11 @@ public class AuthenticationController {
         }
         final JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(authUser.getUsername());
 
-        if(!jwtUser.getPassword().equals(EncryptUtils.encryptPassword(authUser.getPassword()))){
+        if (!jwtUser.getPassword().equals(EncryptUtils.encryptPassword(authUser.getPassword()))) {
             throw new AccountExpiredException("密码错误");
         }
 
-        if(!jwtUser.isEnabled()){
+        if (!jwtUser.isEnabled()) {
             throw new AccountExpiredException("账号已停用，请联系管理员");
         }
         // 生成令牌
@@ -82,20 +82,20 @@ public class AuthenticationController {
         // 保存在线信息
         onlineUserService.save(jwtUser, token, request);
         // 返回 token
-        return ResponseEntity.ok(new AuthInfo(token,jwtUser));
+        return ResponseEntity.ok(new AuthInfo(token, jwtUser));
     }
 
     @ApiOperation("获取用户信息")
     @GetMapping(value = "/info")
-    public ResponseEntity getUserInfo(){
-        JwtUser jwtUser = (JwtUser)userDetailsService.loadUserByUsername(SecurityUtils.getUsername());
+    public ResponseEntity getUserInfo() {
+        JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(SecurityUtils.getUsername());
         return ResponseEntity.ok(jwtUser);
     }
 
     @ApiOperation("获取验证码")
     @AnonymousAccess
     @GetMapping(value = "/code")
-    public ImgResult getCode(){
+    public ImgResult getCode() {
         // 算术类型 https://gitee.com/whvse/EasyCaptcha
         ArithmeticCaptcha captcha = new ArithmeticCaptcha(111, 36);
         // 几位数运算，默认是两位
@@ -103,14 +103,14 @@ public class AuthenticationController {
         // 获取运算的结果：5
         String result = captcha.text();
         String uuid = codeKey + IdUtil.simpleUUID();
-        redisService.saveCode(uuid,result);
-        return new ImgResult(captcha.toBase64(),uuid);
+        redisService.saveCode(uuid, result);
+        return new ImgResult(captcha.toBase64(), uuid);
     }
 
     @ApiOperation("退出登录")
     @AnonymousAccess
     @DeleteMapping(value = "/logout")
-    public ResponseEntity logout(HttpServletRequest request){
+    public ResponseEntity logout(HttpServletRequest request) {
         onlineUserService.logout(jwtTokenUtil.getToken(request));
         return new ResponseEntity(HttpStatus.OK);
     }

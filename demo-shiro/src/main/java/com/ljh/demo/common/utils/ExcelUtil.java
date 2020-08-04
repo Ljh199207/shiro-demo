@@ -14,9 +14,9 @@ import java.util.Collection;
  * @date 2019-11-20 15:06
  */
 public class ExcelUtil {
-    public  static void down(ExportParams entity, Class<?> pojoClass, Collection<?> dataSet, HttpServletResponse response) throws IOException {
-        Workbook workbook = ExcelExportUtil.exportExcel(entity, pojoClass,dataSet);
-        Sheet sheet =  workbook.getSheet(entity.getTitle());
+    public static void down(ExportParams entity, Class<?> pojoClass, Collection<?> dataSet, HttpServletResponse response) throws IOException {
+        Workbook workbook = ExcelExportUtil.exportExcel(entity, pojoClass, dataSet);
+        Sheet sheet = workbook.getSheet(entity.getTitle());
         CellStyle cellStyle = workbook.createCellStyle();
         cellStyle.setFillForegroundColor(IndexedColors.LIGHT_TURQUOISE1.index);
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -41,8 +41,9 @@ public class ExcelUtil {
         workbook.write(fileOutputStream);
         fileOutputStream.close();
     }
-    public  static void downSimple(ExportParams entity, Class<?> pojoClass, Collection<?> dataSet, HttpServletResponse response) throws IOException {
-        Workbook workbook = ExcelExportUtil.exportExcel(entity, pojoClass,dataSet);
+
+    public static void downSimple(ExportParams entity, Class<?> pojoClass, Collection<?> dataSet, HttpServletResponse response) throws IOException {
+        Workbook workbook = ExcelExportUtil.exportExcel(entity, pojoClass, dataSet);
         ServletOutputStream fileOutputStream = response.getOutputStream();
         workbook.write(fileOutputStream);
         fileOutputStream.close();

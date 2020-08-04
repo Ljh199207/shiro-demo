@@ -8,7 +8,7 @@ import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
-public final  class ClassHelper {
+public final class ClassHelper {
     /**
      * 定义类集合（存放基础包名下的所有类）
      */
@@ -31,13 +31,14 @@ public final  class ClassHelper {
 
     public static Set<Class<?>> getServiceClassSet() {
         Set<Class<?>> classSet = new HashSet<Class<?>>();
-        for(Class<?> cls :classSet){
-            if(cls.isAnnotationPresent(MyService.class)){
+        for (Class<?> cls : classSet) {
+            if (cls.isAnnotationPresent(MyService.class)) {
                 CLASS_SET.add(cls);
             }
         }
         return classSet;
     }
+
     /**
      * 获取基础包名下所有 Controller 类
      */
@@ -50,6 +51,7 @@ public final  class ClassHelper {
         }
         return classSet;
     }
+
     /**
      * 获取基础包名下所有 Bean 类（包括：Controller、Service）
      */
@@ -73,6 +75,7 @@ public final  class ClassHelper {
         }
         return classSet;
     }
+
     /**
      * 获取基础包名下带有某注解的所有类
      */

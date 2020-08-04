@@ -17,16 +17,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotEmpty(message = "账号不能为空")
-    @Size(min=3, max=20)
+    @Size(min = 3, max = 20)
     @Column(nullable = false, length = 20, unique = true)
     private String username; // 用户账号，用户登录时的唯一标识
     @NotEmpty(message = "密码不能为空")
-    @Size(max=100)
+    @Size(max = 100)
     @Column(length = 100)
     private String password; // 登录时密码
 
     @ManyToMany
-    @JoinTable(name = "user_authority",joinColumns =@JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "authority_id"))
+    @JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
     //1、关系维护端，负责多对多关系的绑定和解除
     //2、@JoinTable注解的name属性指定关联表的名字，joinColumns指定外键的名字，关联到关系维护端(User)
     //3、inverseJoinColumns指定外键的名字，要关联的关系被维护端(Authority)

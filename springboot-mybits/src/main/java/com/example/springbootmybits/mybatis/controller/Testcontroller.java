@@ -16,7 +16,7 @@ public class Testcontroller {
     @Autowired
     private UserSerivce studentService;
 
-    @RequestMapping( value = "/querystudent", method = RequestMethod.GET)
+    @RequestMapping(value = "/querystudent", method = RequestMethod.GET)
     public Student queryStudentBySno(String sno) {
         return this.studentService.queryStudentBySno(sno);
     }

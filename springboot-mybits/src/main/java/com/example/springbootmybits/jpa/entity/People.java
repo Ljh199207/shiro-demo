@@ -14,10 +14,10 @@ public class People {
     @Column(name = "id", nullable = false)
     private Long id;//id
 
-    @Column(name = "name",length = 20)
+    @Column(name = "name", length = 20)
     private String name;
 
-    @Column(name = "sex",length = 1)
+    @Column(name = "sex", length = 1)
     private String sex;//性别
 
     @Column(name = "birthday")

@@ -14,17 +14,18 @@ public class RoleTest extends BaseTest {
         Assert.assertTrue(subject().hasRole("role1"));
         //判断拥有角色：role1 and role2
         Assert.assertTrue(subject().hasAllRoles(Arrays.asList("role1", "role2")));
-       //判断拥有角色：role1 and role2 and !role3
+        //判断拥有角色：role1 and role2 and !role3
         boolean[] result = subject().hasRoles(Arrays.asList("role1", "role2", "role3"));
         Assert.assertEquals(true, result[0]);
         Assert.assertEquals(true, result[1]);
         Assert.assertEquals(false, result[2]);
     }
+
     @Test
-    public void testCheckRole(){
+    public void testCheckRole() {
         login("classpath:shiro-role.ini", "zhang", "123");
         //断言拥有角色：role1
         subject().checkRole("role1");
-        subject().checkRoles("role1","role2");
+        subject().checkRoles("role1", "role2");
     }
 }

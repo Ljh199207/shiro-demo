@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @date 2018-12-10
  */
 @Service
-@SuppressWarnings({"unchecked","all"})
+@SuppressWarnings({"unchecked", "all"})
 public class RedisServiceImpl implements RedisService {
 
     private final RedisTemplate redisTemplate;
@@ -40,10 +40,10 @@ public class RedisServiceImpl implements RedisService {
     }
 
     @Override
-    public Page<RedisVo> findByKey(String key, Pageable pageable){
+    public Page<RedisVo> findByKey(String key, Pageable pageable) {
         List<RedisVo> redisVos = findByKey(key);
         return new PageImpl<RedisVo>(
-                PageUtil.toPage(pageable.getPageNumber(),pageable.getPageSize(),redisVos),
+                PageUtil.toPage(pageable.getPageNumber(), pageable.getPageSize(), redisVos),
                 pageable,
                 redisVos.size());
     }
@@ -51,7 +51,7 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public List<RedisVo> findByKey(String key) {
         List<RedisVo> redisVos = new ArrayList<>();
-        if(!"*".equals(key)){
+        if (!"*".equals(key)) {
             key = "*" + key + "*";
         }
         Set<String> keys = redisTemplate.keys(key);
@@ -73,7 +73,7 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public void deleteAll() {
-        Set<String> keys = redisTemplate.keys(  "*");
+        Set<String> keys = redisTemplate.keys("*");
         redisTemplate.delete(keys.stream().filter(s -> !s.contains(onlineKey)).filter(s -> !s.contains(codeKey)).collect(Collectors.toList()));
     }
 
@@ -81,26 +81,26 @@ public class RedisServiceImpl implements RedisService {
     public String getCodeVal(String key) {
         try {
             return Objects.requireNonNull(redisTemplate.opsForValue().get(key)).toString();
-        }catch (Exception e){
+        } catch (Exception e) {
             return "";
         }
     }
 
     @Override
     public void saveCode(String key, Object val) {
-        redisTemplate.opsForValue().set(key,val);
-        redisTemplate.expire(key,expiration, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(key, val);
+        redisTemplate.expire(key, expiration, TimeUnit.MINUTES);
     }
 
     @Override
     public void download(List<RedisVo> redisVos, HttpServletResponse response) throws IOException {
         List<Map<String, Object>> list = new ArrayList<>();
         for (RedisVo redisVo : redisVos) {
-            Map<String,Object> map = new LinkedHashMap<>();
+            Map<String, Object> map = new LinkedHashMap<>();
             map.put("key", redisVo.getKey());
             map.put("value", redisVo.getValue());
             list.add(map);
         }
-     //   FileUtil.downloadExcel(list, response);
+        //   FileUtil.downloadExcel(list, response);
     }
 }

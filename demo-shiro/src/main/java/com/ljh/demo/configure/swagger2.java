@@ -28,6 +28,7 @@ public class swagger2 {
                 .paths(PathSelectors.any())
                 .build();
     }
+
     //构建 api文档的详细信息函数,注意这里的注解引用的是哪个
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
@@ -37,8 +38,9 @@ public class swagger2 {
                 .version("1.0")
                 .build();
     }
+
     @Bean(FebsConstant.ASYNC_POOL)
-    public ThreadPoolTaskExecutor asyncThreadPoolTaskExecutor(){
+    public ThreadPoolTaskExecutor asyncThreadPoolTaskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(5);
         executor.setMaxPoolSize(20);

@@ -32,7 +32,7 @@ public interface MenuService {
 
     List<Menu> findByPid(long pid);
 
-    Map<String,Object> buildTree(List<MenuDTO> menuDTOS);
+    Map<String, Object> buildTree(List<MenuDTO> menuDTOS);
 
     List<MenuDTO> findByRoles(List<RoleSmallDTO> roles);
 

@@ -47,6 +47,7 @@ public class Test1Controller {
 
     /**
      * 树序列化
+     *
      * @return
      */
     @RequestMapping("readjsonstring")
@@ -63,15 +64,18 @@ public class Test1Controller {
         }
         return null;
     }
+
     @RequestMapping("readjson2string")
     @ResponseBody
     public String readJson2String() throws IOException {
-        String json = "{\"name\":\"mrbird\",\"hobby\":{\"first\":\"sleep\",\"second\":\"eat\"}}";;
+        String json = "{\"name\":\"mrbird\",\"hobby\":{\"first\":\"sleep\",\"second\":\"eat\"}}";
+        ;
         JsonNode node = this.mapper.readTree(json);
         JsonNode hobby = node.get("hobby");
         String first = hobby.get("first").asText();
-        return  first;
+        return first;
     }
+
     @RequestMapping("readjsonasobject")
     @ResponseBody
     public String readJsonAsObject() {

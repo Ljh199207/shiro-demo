@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 @Import(ConfigA.class)
 public class ConfigB {
 
-    public String b(){
-       return "B";
+    public String b() {
+        return "B";
     }
 }

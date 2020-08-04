@@ -5,7 +5,7 @@ import com.ljh.util.PropsUtil;
 
 import java.util.Properties;
 
-public  final class ConfigHelper {
+public final class ConfigHelper {
     /**
      * 加载配置文件的属性
      */

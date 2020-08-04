@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
-* @date 2019-03-29
-*/
+ * @author Zheng Jie
+ * @date 2019-03-29
+ */
 public interface JobService {
 
     JobDTO findById(Long id);
@@ -24,7 +24,7 @@ public interface JobService {
 
     void delete(Long id);
 
-    Map<String,Object> queryAll(JobQueryCriteria criteria, Pageable pageable);
+    Map<String, Object> queryAll(JobQueryCriteria criteria, Pageable pageable);
 
     List<JobDTO> queryAll(JobQueryCriteria criteria);
 

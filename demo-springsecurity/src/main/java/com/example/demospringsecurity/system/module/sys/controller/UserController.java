@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
+
     @GetMapping
-    public ResponseEntity hello(UserQueryCriteria criteria, Pageable pageable){
+    public ResponseEntity hello(UserQueryCriteria criteria, Pageable pageable) {
         return new ResponseEntity<>(userService.queryAll(criteria, pageable), HttpStatus.OK);
     }
 

@@ -77,18 +77,19 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setUnauthorizedUrl(shiroProperties.getUnauthorizedUrl());
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         String[] anonUrls = StringUtils.splitByWholeSeparatorPreserveAllTokens(shiroProperties.getAnonUrl(), ",");
-        for (String anonUrl: anonUrls) {
-            filterChainDefinitionMap.put(anonUrl,"anon");
+        for (String anonUrl : anonUrls) {
+            filterChainDefinitionMap.put(anonUrl, "anon");
         }
         // 配置退出过滤器，其中具体的退出代码 Shiro已经替我们实现了
-        filterChainDefinitionMap.put(shiroProperties.getLogoutUrl(),"logout");
+        filterChainDefinitionMap.put(shiroProperties.getLogoutUrl(), "logout");
         // 除上以外所有 url都必须认证通过才可以访问，未通过认证自动访问 LoginUrl
         filterChainDefinitionMap.put("/**", "user");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
+
     @Bean
-    public SecurityManager securityManager(ShiroRealm shiroRealm){
+    public SecurityManager securityManager(ShiroRealm shiroRealm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(shiroRealm);
         // 配置 shiro session管理器
@@ -136,6 +137,7 @@ public class ShiroConfig {
         redisSessionDAO.setRedisManager(redisManager());
         return redisSessionDAO;
     }
+
     /**
      * 用于开启 Thymeleaf 中的 shiro 标签的使用
      *

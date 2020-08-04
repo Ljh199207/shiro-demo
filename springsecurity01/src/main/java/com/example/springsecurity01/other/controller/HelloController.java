@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping
-    public String  controller(){
+    public String controller() {
         return "Hello,Spring Security";
     }
 
     @GetMapping("/helloAdmin")
-   // @PreAuthorize("hasAnyRole('admin')")
+    // @PreAuthorize("hasAnyRole('admin')")
     public String helloAdmin() {
         return "Hello,admin";
     }
 
     @GetMapping("/helloUser")
-   // @PreAuthorize("hasAnyRole('admin','normal')")
+    // @PreAuthorize("hasAnyRole('admin','normal')")
     public String helloUser() {
         return "Hello,user";
     }

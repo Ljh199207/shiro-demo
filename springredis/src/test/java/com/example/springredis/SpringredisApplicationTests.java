@@ -23,10 +23,6 @@ class SpringredisApplicationTests {
     private RedisTemplate<String, Object> redisTemplate;
 
 
-
-
-
-
     @Test
     public void testString() {
         String value = "redis";

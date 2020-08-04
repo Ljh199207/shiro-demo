@@ -54,7 +54,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 设置所有人都可以访问登录页面
                 .antMatchers("/login").permitAll()
                 .antMatchers("/", "/index").permitAll()
-                .antMatchers("/test/**", "/code/image","/code/sms", "/test1/**").permitAll()
+                .antMatchers("/test/**", "/code/image", "/code/sms", "/test1/**").permitAll()
                 .antMatchers("/res/**/*.{js,html}").permitAll()
 
                 .anyRequest().access("@authService.canAccess(request,authentication)")
@@ -69,7 +69,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.and().apply(smsAuthenticationConfig)
                 .and()
                 .formLogin().loginPage("/login")
-                ;
+        ;
     }
 
     @Bean
@@ -85,7 +85,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PersistentTokenRepository persistentTokenRepository(){
+    public PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
         jdbcTokenRepository.setDataSource(dataSource);
         jdbcTokenRepository.setCreateTableOnStartup(false);

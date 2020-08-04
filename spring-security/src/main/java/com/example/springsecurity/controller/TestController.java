@@ -14,6 +14,7 @@ public class TestController {
     public String hello() {
         return "hello spring security";
     }
+
     @GetMapping("index")
     public Object index(Authentication authentication) {
         // return SecurityContextHolder.getContext().getAuthentication();

@@ -40,13 +40,12 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
         String method = httpServletRequest.getMethod();
         System.out.println(method);
         if (StringUtils.equalsIgnoreCase("/login", httpServletRequest.getRequestURI()) && StringUtils.equalsIgnoreCase(httpServletRequest.getMethod(), "post")) {
-           try {
-               validateCode(new ServletWebRequest(httpServletRequest));
-           }
-           catch (ValidateCodeException e){
-               authenticationFailureHandler.onAuthenticationFailure(httpServletRequest, httpServletResponse, e);
-               return;
-           }
+            try {
+                validateCode(new ServletWebRequest(httpServletRequest));
+            } catch (ValidateCodeException e) {
+                authenticationFailureHandler.onAuthenticationFailure(httpServletRequest, httpServletResponse, e);
+                return;
+            }
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

@@ -16,10 +16,11 @@ public class JacksonRedisSerializer<T> implements RedisSerializer<T> {
 
     private ObjectMapper mapper;
 
-    JacksonRedisSerializer(Class<T> clazz){
-      this.clazz = clazz;
-      mapper = new ObjectMapper();
+    JacksonRedisSerializer(Class<T> clazz) {
+        this.clazz = clazz;
+        mapper = new ObjectMapper();
     }
+
     /**
      * Serialize the given object to binary data.
      *

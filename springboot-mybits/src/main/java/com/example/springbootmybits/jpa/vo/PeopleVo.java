@@ -9,7 +9,7 @@ public class PeopleVo {
 
     private String name;
 
-    private String  sex;
+    private String sex;
 
     private String birth;
 

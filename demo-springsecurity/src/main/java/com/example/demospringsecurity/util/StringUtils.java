@@ -124,7 +124,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         if (ip.contains(",")) {
             ip = ip.split(",")[0];
         }
-        if  ("127.0.0.1".equals(ip))  {
+        if ("127.0.0.1".equals(ip)) {
             // 获取本机真正的ip地址
             try {
                 ip = InetAddress.getLocalHost().getHostAddress();
@@ -149,18 +149,18 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             method = searcher.getClass().getMethod("btreeSearch", String.class);
             DataBlock dataBlock;
             dataBlock = (DataBlock) method.invoke(searcher, ip);
-            String address = dataBlock.getRegion().replace("0|","");
-            if(address.charAt(address.length()-1) == '|'){
-                address = address.substring(0,address.length() - 1);
+            String address = dataBlock.getRegion().replace("0|", "");
+            if (address.charAt(address.length() - 1) == '|') {
+                address = address.substring(0, address.length() - 1);
             }
-            return address.equals(ElAdminConstant.REGION)?"内网IP":address;
+            return address.equals(ElAdminConstant.REGION) ? "内网IP" : address;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "";
     }
 
-    public static String getBrowser(HttpServletRequest request){
+    public static String getBrowser(HttpServletRequest request) {
         UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
         Browser browser = userAgent.getBrowser();
         return browser.getName();
@@ -169,13 +169,13 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /**
      * 获得当天是周几
      */
-    public static String getWeekDay(){
+    public static String getWeekDay() {
         String[] weekDays = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
 
         int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (w < 0){
+        if (w < 0) {
             w = 0;
         }
         return weekDays[w];

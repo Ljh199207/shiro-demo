@@ -107,7 +107,7 @@ public class JwtTokenUtil implements Serializable {
                 .compact();
     }
 
-    public String getToken(HttpServletRequest request){
+    public String getToken(HttpServletRequest request) {
         final String requestHeader = request.getHeader(tokenHeader);
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
             return requestHeader.substring(7);

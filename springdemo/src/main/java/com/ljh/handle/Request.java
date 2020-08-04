@@ -15,11 +15,12 @@ public class Request {
     private String requestPath;
 
 
-     public Request(String requestMethod,String requestPath){
-         this.requestMethod=requestMethod;
-         this.requestPath=requestPath;
+    public Request(String requestMethod, String requestPath) {
+        this.requestMethod = requestMethod;
+        this.requestPath = requestPath;
 
-     }
+    }
+
     @Override
     public int hashCode() {
         int result = 17;

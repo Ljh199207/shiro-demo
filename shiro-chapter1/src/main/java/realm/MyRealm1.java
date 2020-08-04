@@ -18,14 +18,14 @@ public class MyRealm1 implements Realm {
 
     public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         //得到用户名
-        String username = (String)token.getPrincipal();
+        String username = (String) token.getPrincipal();
         //得到密码
         String password = new String((char[]) token.getCredentials());
-        if(!"zhang".equals(username)) {
+        if (!"zhang".equals(username)) {
             //如果用户名错误
             throw new UnknownAccountException();
         }
-        if(!"123".endsWith(password)){
+        if (!"123".endsWith(password)) {
             //如果密码错误
             throw new IncorrectCredentialsException();
         }

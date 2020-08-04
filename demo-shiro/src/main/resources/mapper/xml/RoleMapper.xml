@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ljh.demo.system.mapper.RoleMapper">
     <select id="findUserRole" resultType="role">
-       SELECT
-            r.*
+        SELECT
+        r.*
         FROM
-            t_role r
+        t_role r
         LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id)
         LEFT JOIN t_user u ON (u.user_id = ur.user_id)
         WHERE
-            u.username = #{username}
+        u.username = #{username}
     </select>
     <select id="findRolePage" resultType="com.ljh.demo.system.entity.Role">
         SELECT

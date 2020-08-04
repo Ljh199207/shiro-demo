@@ -19,7 +19,8 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-            id, author, base_package, entity_package, mapper_package, mapper_xml_package, service_package, service_impl_package, controller_package, is_trim, trim_value
-        </sql>
+        id, author, base_package, entity_package, mapper_package, mapper_xml_package, service_package,
+        service_impl_package, controller_package, is_trim, trim_value
+    </sql>
 
 </mapper>

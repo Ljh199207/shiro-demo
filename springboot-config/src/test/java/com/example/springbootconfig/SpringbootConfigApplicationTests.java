@@ -26,7 +26,7 @@ class SpringbootConfigApplicationTests {
     }
 
     @Test
-    void MyTestEventPubLisher(){
+    void MyTestEventPubLisher() {
         myTestEventPubLisher.pushListener("我来了");
     }
 }

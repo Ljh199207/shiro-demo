@@ -28,9 +28,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
-* @date 2019-03-29
-*/
+ * @author Zheng Jie
+ * @date 2019-03-29
+ */
 @Service
 @CacheConfig(cacheNames = "job")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -50,19 +50,19 @@ public class JobServiceImpl implements JobService {
 
     @Override
     @Cacheable
-    public Map<String,Object> queryAll(JobQueryCriteria criteria, Pageable pageable) {
-        Page<Job> page = jobRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
+    public Map<String, Object> queryAll(JobQueryCriteria criteria, Pageable pageable) {
+        Page<Job> page = jobRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), pageable);
         List<JobDTO> jobs = new ArrayList<>();
         for (Job job : page.getContent()) {
-            jobs.add(jobMapper.toDto(job,deptRepository.findNameById(job.getDept().getPid())));
+            jobs.add(jobMapper.toDto(job, deptRepository.findNameById(job.getDept().getPid())));
         }
-        return PageUtil.toPage(jobs,page.getTotalElements());
+        return PageUtil.toPage(jobs, page.getTotalElements());
     }
 
     @Override
     @Cacheable
     public List<JobDTO> queryAll(JobQueryCriteria criteria) {
-        List<Job> list = jobRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder));
+        List<Job> list = jobRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder));
         return jobMapper.toDto(list);
     }
 
@@ -70,7 +70,7 @@ public class JobServiceImpl implements JobService {
     @Cacheable(key = "#p0")
     public JobDTO findById(Long id) {
         Job job = jobRepository.findById(id).orElseGet(Job::new);
-        ValidationUtil.isNull(job.getId(),"Job","id",id);
+        ValidationUtil.isNull(job.getId(), "Job", "id", id);
         return jobMapper.toDto(job);
     }
 
@@ -86,7 +86,7 @@ public class JobServiceImpl implements JobService {
     @Transactional(rollbackFor = Exception.class)
     public void update(Job resources) {
         Job job = jobRepository.findById(resources.getId()).orElseGet(Job::new);
-        ValidationUtil.isNull( job.getId(),"Job","id",resources.getId());
+        ValidationUtil.isNull(job.getId(), "Job", "id", resources.getId());
         resources.setId(job.getId());
         jobRepository.save(resources);
     }
@@ -102,7 +102,7 @@ public class JobServiceImpl implements JobService {
     public void download(List<JobDTO> jobDTOs, HttpServletResponse response) throws IOException {
         List<Map<String, Object>> list = new ArrayList<>();
         for (JobDTO jobDTO : jobDTOs) {
-            Map<String,Object> map = new LinkedHashMap<>();
+            Map<String, Object> map = new LinkedHashMap<>();
             map.put("岗位名称", jobDTO.getName());
             map.put("所属部门", jobDTO.getDept().getName());
             map.put("岗位状态", jobDTO.getEnabled() ? "启用" : "停用");

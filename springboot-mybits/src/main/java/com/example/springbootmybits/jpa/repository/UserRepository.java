@@ -11,18 +11,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public interface UserRepository extends JpaRepository<User,Long>, JpaSpecificationExecutor<User> {
+public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 
     @Query("from User u where u.username like %:name% ")
     User findByName(@Param("name") String name);
 
     @Modifying
     @Query("update User u SET u.username=:name,u.password =:password where u.id = :id ")
-    Integer updateUser(@Param("id") Long id,@Param("name") String name,@Param("password")String password);
+    Integer updateUser(@Param("id") Long id, @Param("name") String name, @Param("password") String password);
 
 
     @Modifying
-    @Query(value = "update j_user  u SET u.username=:name,u.password =:password where u.id = :id ",nativeQuery = true)
-    Integer updateUser2(@Param("id") Long id,@Param("name") String name,@Param("password")String password);
+    @Query(value = "update j_user  u SET u.username=:name,u.password =:password where u.id = :id ", nativeQuery = true)
+    Integer updateUser2(@Param("id") Long id, @Param("name") String name, @Param("password") String password);
 
 }

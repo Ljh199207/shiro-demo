@@ -10,13 +10,13 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
-* @author Zheng Jie
-* @date 2019-04-10
-*/
+ * @author Zheng Jie
+ * @date 2019-04-10
+ */
 @Entity
 @Getter
 @Setter
-@Table(name="dict_detail")
+@Table(name = "dict_detail")
 public class DictDetail implements Serializable {
 
     @Id
@@ -26,11 +26,11 @@ public class DictDetail implements Serializable {
     private Long id;
 
     // 字典标签
-    @Column(name = "label",nullable = false)
+    @Column(name = "label", nullable = false)
     private String label;
 
     // 字典值
-    @Column(name = "value",nullable = false)
+    @Column(name = "value", nullable = false)
     private String value;
 
     // 排序
@@ -38,7 +38,7 @@ public class DictDetail implements Serializable {
     private String sort = "999";
 
     // 字典id
-    @ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dict_id")
     private Dict dict;
 
@@ -46,5 +46,6 @@ public class DictDetail implements Serializable {
     @CreationTimestamp
     private Timestamp createTime;
 
-    public @interface Update {}
+    public @interface Update {
+    }
 }

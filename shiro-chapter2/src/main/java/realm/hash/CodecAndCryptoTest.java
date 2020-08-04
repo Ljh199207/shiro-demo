@@ -37,7 +37,7 @@ public class CodecAndCryptoTest extends BaseTest {
 
     @Test
     public void testHash() {
-       //散列算法
+        //散列算法
         String str = "hello";
         String salt = "123";
         String md5 = new Md5Hash(str, salt).toString();

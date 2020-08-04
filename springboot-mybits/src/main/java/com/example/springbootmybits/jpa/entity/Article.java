@@ -21,7 +21,7 @@ public class Article {
     @Column(nullable = false, length = 50) // 映射为字段，值不能为空
     private String title;
     @Lob  // 大对象，映射 MySQL 的 Long Text 类型
-   // @Basic(fetch = FetchType.LAZY) // 懒加载
+    // @Basic(fetch = FetchType.LAZY) // 懒加载
     @NotEmpty(message = "内容不能为空")
     @Size(min = 2)
     @Column(nullable = false) // 映射为字段，值不能为空

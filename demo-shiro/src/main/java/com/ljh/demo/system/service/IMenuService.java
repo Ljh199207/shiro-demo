@@ -56,6 +56,7 @@ public interface IMenuService extends IService<Menu> {
 
     /**
      * 获取用户权限集
+     *
      * @param userName
      * @return
      */

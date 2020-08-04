@@ -12,18 +12,19 @@ public class IndexController {
 
     @Autowired
     private BlogProperties blogProperties;
-
+/*
     @Autowired
-    private ConfigBean configBean;
+    private ConfigBean configBean;*/
 
-    @Autowired
-    private TestBeanConfig testBeanConfig;
+  /*  @Autowired
+    private TestBeanConfig testBeanConfig;*/
 
     @RequestMapping("/")
     String index() {
-       // return blogProperties.getName()+"——"+blogProperties.getTitle();
-       // return configBean.getName()+"------"+configBean.getTitle()+"--"+configBean.getWholeTitle();
-        return testBeanConfig.getName()+"----"+testBeanConfig.getAge();
+        // return blogProperties.getName()+"——"+blogProperties.getTitle();
+        // return configBean.getName()+"------"+configBean.getTitle()+"--"+configBean.getWholeTitle();
+        // return testBeanConfig.getName()+"----"+testBeanConfig.getAge();
+        return "";
     }
 
 }

@@ -24,16 +24,18 @@ public class DataInit {
     RoleRepository roleRepository;
     @Autowired
     PermissionRepository permissionRepository;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new MyPasswordEncoder();
     }
+
     @PostConstruct
     public void dataInit() {
 
         List<Role> roles = new ArrayList<>();
-        Role adminRole= new Role("admin","管理员");
-        Role normalRole = new Role("normal","普通用户");
+        Role adminRole = new Role("admin", "管理员");
+        Role normalRole = new Role("normal", "普通用户");
         roleRepository.save(adminRole);
         roleRepository.save(normalRole);
 

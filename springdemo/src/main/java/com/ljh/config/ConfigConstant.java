@@ -1,6 +1,6 @@
 package com.ljh.config;
 
-public interface  ConfigConstant {
+public interface ConfigConstant {
     //配置文件的名称
     String CONFIG_FILE = "handwritten.properties";
 

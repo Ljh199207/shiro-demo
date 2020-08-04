@@ -49,7 +49,8 @@ return new FebsResponse().success().data(${className?uncap_first}Service.find${c
 @GetMapping("${className?uncap_first}/list")
 @ResponseBody
 public FebsResponse ${className?uncap_first}List(QueryRequest request, ${className} ${className?uncap_first}) {
-Map<String, Object> dataTable = getDataTable(this.${className?uncap_first}Service.find${className}s(request, ${className?uncap_first}));
+Map
+<String, Object> dataTable = getDataTable(this.${className?uncap_first}Service.find${className}s(request, ${className?uncap_first}));
 return new FebsResponse().success().data(dataTable);
 }
 

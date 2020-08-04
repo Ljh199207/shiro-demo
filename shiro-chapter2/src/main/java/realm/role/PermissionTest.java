@@ -20,15 +20,16 @@ public class PermissionTest extends BaseTest {
     public void testPermission() {
         login("classpath:shiro-permission.ini", "zhang", "123");
         subject().checkPermission("user:create");
-        subject().checkPermissions("user:create","user:delete");
+        subject().checkPermissions("user:create", "user:delete");
         //扔异常
         subject().checkPermissions("user:view");
     }
+
     @Test
     public void testWildcardPermission1() {
         login("classpath:shiro-permission.ini", "li", "123");
         subject().checkPermission("system:user:update");
-        subject().checkPermissions("system:user:delete","system:user:update");
+        subject().checkPermissions("system:user:delete", "system:user:update");
         subject().checkPermissions("system:user:update,delete");
     }
 

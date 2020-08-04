@@ -39,13 +39,14 @@ public class LoginLogoutTest {
         //4获取subject
         Subject subject = SecurityUtils.getSubject();
         //获取token
-        UsernamePasswordToken token = new UsernamePasswordToken("zhang","123");
+        UsernamePasswordToken token = new UsernamePasswordToken("zhang", "123");
         subject.login(token);
-        Assert.assertEquals(true,subject.isAuthenticated());
+        Assert.assertEquals(true, subject.isAuthenticated());
         subject.logout();
     }
+
     @Test
-    public void testCustomMultiRealm(){
+    public void testCustomMultiRealm() {
         //第一步，获取SecurityManger
         Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-multi-realm.ini");
         //2 获取securityManger 的实例
@@ -55,14 +56,14 @@ public class LoginLogoutTest {
         //4获取subject
         Subject subject = SecurityUtils.getSubject();
         //获取token
-        UsernamePasswordToken token = new UsernamePasswordToken("wang1","123");
+        UsernamePasswordToken token = new UsernamePasswordToken("wang1", "123");
         subject.login(token);
-        Assert.assertEquals(true,subject.isAuthenticated());
+        Assert.assertEquals(true, subject.isAuthenticated());
         subject.logout();
     }
 
     @Test
-    public void testJdbcReal(){
+    public void testJdbcReal() {
 
         Factory<SecurityManager> factory = new IniSecurityManagerFactory();
         SecurityManager instance = factory.getInstance();
@@ -78,9 +79,9 @@ public class LoginLogoutTest {
         SecurityManager instance = factory.getInstance();*/
         SecurityUtils.setSecurityManager(instance);
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken("zhang","123");
+        UsernamePasswordToken token = new UsernamePasswordToken("zhang", "123");
         subject.login(token);
-        Assert.assertEquals(true,subject.isAuthenticated());
+        Assert.assertEquals(true, subject.isAuthenticated());
         subject.logout();
     }
 }

@@ -8,6 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface UserRoleMapper {
-	
-	List<Role> findByUserName(@Param("userName") String userName);
+
+    List<Role> findByUserName(@Param("userName") String userName);
 }

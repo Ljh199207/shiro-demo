@@ -18,6 +18,7 @@ public interface PeopleRepository extends JpaRepository<People, Long>, JpaSpecif
 
     /**
      * 返回List<Map>信息
+     *
      * @param realName
      * @return
      */
@@ -29,7 +30,7 @@ public interface PeopleRepository extends JpaRepository<People, Long>, JpaSpecif
      * @param realName
      * @return
      */
-    @Query(value = "select new map(p.name  ,p.sex  ,p.birthday ,a.phone,a.address) from People p left join Address a on p.address = a.id where p.name like %:name%")
-    List<Map<String, Object>>  getUserByRealName1(@Param("name") String realName);
+    //@Query(value = "select new map(p.name  ,p.sex  ,p.birthday ,a.phone,a.address) from People p left join Address a on p.address = a.id where p.name like %:name%")
+    // List<Map<String, Object>>  getUserByRealName1(@Param("name") String realName);
 
 }

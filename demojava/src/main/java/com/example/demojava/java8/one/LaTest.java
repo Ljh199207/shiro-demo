@@ -37,6 +37,7 @@ public class LaTest {
         });
         names.forEach(e -> System.out.println(e));
     }
+
     public static void test3() {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
         Collections.sort(names, (String a, String b) -> b.compareTo(a));

@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.*;
  * @author ljh
  * @date 2019-11-20 13:57
  */
-public class ExcelStyleUtil implements IExcelExportStyler  {
+public class ExcelStyleUtil implements IExcelExportStyler {
     private static final short STRING_FORMAT = (short) BuiltinFormats.getBuiltinFormat("TEXT");
     private static final short FONT_SIZE_TEN = 10;
     private static final short FONT_SIZE_ELEVEN = 11;
@@ -55,6 +55,7 @@ public class ExcelStyleUtil implements IExcelExportStyler  {
         style.setDataFormat(STRING_FORMAT);
         return style;
     }
+
     /**
      * 初始化--大标题样式
      *
@@ -66,6 +67,7 @@ public class ExcelStyleUtil implements IExcelExportStyler  {
         style.setFont(getFont(workbook, FONT_SIZE_TWELVE, true));
         return style;
     }
+
     /**
      * 初始化--每列标题样式
      *
@@ -80,6 +82,7 @@ public class ExcelStyleUtil implements IExcelExportStyler  {
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         return style;
     }
+
     /**
      * 字体样式
      *
@@ -97,6 +100,7 @@ public class ExcelStyleUtil implements IExcelExportStyler  {
         font.setFontHeightInPoints(size);
         return font;
     }
+
     /**
      * 基础样式
      *
@@ -120,6 +124,7 @@ public class ExcelStyleUtil implements IExcelExportStyler  {
         style.setWrapText(true);
         return style;
     }
+
     @Override
     public CellStyle getHeaderStyle(short headerColor) {
         return headerStyle;

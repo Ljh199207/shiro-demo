@@ -32,7 +32,7 @@ public class TGeneratorConfigServiceImpl extends ServiceImpl<TGeneratorConfigMap
     @Override
     public TGeneratorConfig findGeneratorConfig() {
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("id",2);
+        queryWrapper.eq("id", 2);
         List<TGeneratorConfig> generatorConfigs = this.baseMapper.selectList(queryWrapper);
         return CollectionUtils.isNotEmpty(generatorConfigs) ? generatorConfigs.get(0) : null;
     }

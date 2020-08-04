@@ -65,7 +65,7 @@ public class User implements Serializable {
      */
     @TableField("USERNAME")
     @Size(min = 4, max = 10, message = "{range}")
-    @Excel(name = "用户名",width = 20)
+    @Excel(name = "用户名", width = 20)
     private String username;
 
     /**
@@ -86,14 +86,14 @@ public class User implements Serializable {
     @TableField("EMAIL")
     @Size(max = 50, message = "{noMoreThan}")
     @Email(message = "{email}")
-    @Excel(name = "邮箱",width = 20)
+    @Excel(name = "邮箱", width = 20)
     private String email;
 
     /**
      * 联系电话
      */
     @TableField("MOBILE")
-    @Excel(name = "联系电话",width = 30)
+    @Excel(name = "联系电话", width = 30)
     private String mobile;
 
     /**
@@ -101,28 +101,28 @@ public class User implements Serializable {
      */
     @TableField("STATUS")
     @NotBlank(message = "{required}")
-    @Excel(name = "状态", replace = { "锁定_0", "有效_1" },width = 20)
+    @Excel(name = "状态", replace = {"锁定_0", "有效_1"}, width = 20)
     private String status;
 
     /**
      * 创建时间
      */
     @TableField("CREATE_TIME")
-    @Excel(name = "创建时间",width = 40, format = "yyyy-MM-dd")
+    @Excel(name = "创建时间", width = 40, format = "yyyy-MM-dd")
     private Date createTime;
 
     /**
      * 修改时间
      */
     @TableField("MODIFY_TIME")
-    @Excel(name = "修改时间", format = "yyyy-MM-dd",width = 40)
+    @Excel(name = "修改时间", format = "yyyy-MM-dd", width = 40)
     private Date modifyTime;
 
     /**
      * 最近访问时间
      */
     @TableField("LAST_LOGIN_TIME")
-    @Excel(name = "最近访问时间", format = "yyyy-MM-dd",width = 40)
+    @Excel(name = "最近访问时间", format = "yyyy-MM-dd", width = 40)
     @JsonFormat(pattern = "yyyy年MM月dd日 HH时mm分ss秒", timezone = "GMT+8")
     private Date lastLoginTime;
 
@@ -131,7 +131,7 @@ public class User implements Serializable {
      */
     @TableField("SSEX")
     @NotBlank(message = "{required}")
-    @Excel(name = "性别", replace = { "男_0", "女_1","保密_2" },width = 20)
+    @Excel(name = "性别", replace = {"男_0", "女_1", "保密_2"}, width = 20)
     private String sex;
 
     /**
@@ -157,13 +157,13 @@ public class User implements Serializable {
      */
     @TableField("DESCRIPTION")
     @Size(max = 100, message = "{noMoreThan}")
-    @Excel(name = "个人描述",width = 40)
+    @Excel(name = "个人描述", width = 40)
     private String description;
 
     /**
      * 部门名称
      */
-    @Excel(name = "部门",width = 20)
+    @Excel(name = "部门", width = 20)
     @TableField(exist = false)
     private String deptName;
 
@@ -178,7 +178,7 @@ public class User implements Serializable {
     @TableField(exist = false)
     private String roleId;
 
-    @Excel(name = "角色",width = 20)
+    @Excel(name = "角色", width = 20)
     @TableField(exist = false)
     private String roleName;
 

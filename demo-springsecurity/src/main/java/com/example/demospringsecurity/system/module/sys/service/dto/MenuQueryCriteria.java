@@ -15,9 +15,9 @@ public class MenuQueryCriteria {
     @Query(blurry = "name,path,component")
     private String blurry;
 
-    @Query(type = Query.Type.GREATER_THAN,propName = "createTime")
+    @Query(type = Query.Type.GREATER_THAN, propName = "createTime")
     private Timestamp startTime;
 
-    @Query(type = Query.Type.LESS_THAN,propName = "createTime")
+    @Query(type = Query.Type.LESS_THAN, propName = "createTime")
     private Timestamp endTime;
 }

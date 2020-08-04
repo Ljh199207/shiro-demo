@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 可自行扩展
+ *
  * @author Zheng Jie
  * @date 2018-12-10
  */
@@ -17,6 +18,7 @@ public interface RedisService {
 
     /**
      * findById
+     *
      * @param key 键
      * @return /
      */
@@ -24,6 +26,7 @@ public interface RedisService {
 
     /**
      * findById
+     *
      * @param key 键
      * @return /
      */
@@ -31,6 +34,7 @@ public interface RedisService {
 
     /**
      * 查询验证码的值
+     *
      * @param key 键
      * @return /
      */
@@ -38,6 +42,7 @@ public interface RedisService {
 
     /**
      * 保存验证码
+     *
      * @param key 键
      * @param val 值
      */
@@ -45,6 +50,7 @@ public interface RedisService {
 
     /**
      * delete
+     *
      * @param key 键
      */
     void delete(String key);
@@ -55,7 +61,6 @@ public interface RedisService {
     void deleteAll();
 
     /**
-     *
      * @param redisVos /
      * @param response /
      */

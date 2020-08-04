@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public final  class PropsUtil {
+public final class PropsUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
 
     /**
@@ -37,6 +37,7 @@ public final  class PropsUtil {
         }
         return props;
     }
+
     /**
      * 获取 String 类型的属性值（默认值为空字符串）
      */

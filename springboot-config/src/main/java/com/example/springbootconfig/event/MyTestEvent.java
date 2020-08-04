@@ -8,9 +8,9 @@ public class MyTestEvent extends ApplicationEvent {
      */
     private static final long serialVersionUID = 1L;
 
-    private String msg ;
+    private String msg;
 
-    public MyTestEvent(Object source,String msg) {
+    public MyTestEvent(Object source, String msg) {
         super(source);
         this.msg = msg;
     }

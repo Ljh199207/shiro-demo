@@ -31,7 +31,7 @@ public interface IDeptService extends IService<Dept> {
      * @param dept dept
      * @return List<Dept>
      */
-    List<DeptTree<Dept>>  findDepts();
+    List<DeptTree<Dept>> findDepts();
 
     /**
      * 新增

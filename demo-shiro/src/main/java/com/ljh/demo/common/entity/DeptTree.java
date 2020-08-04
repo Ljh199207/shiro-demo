@@ -30,7 +30,7 @@ public class DeptTree<T> implements Serializable {
 
     private Dept data;
 
-    public void initChildren(){
+    public void initChildren() {
         this.children = new ArrayList<>();
     }
 

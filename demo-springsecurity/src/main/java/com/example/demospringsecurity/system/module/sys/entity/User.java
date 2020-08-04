@@ -20,7 +20,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name="user")
+@Table(name = "user")
 public class User implements Serializable {
 
     @Id
@@ -37,7 +37,7 @@ public class User implements Serializable {
     private UserAvatar userAvatar;
 
     @NotBlank
-    @Pattern(regexp = "([a-z0-9A-Z]+[-|.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}",message = "格式错误")
+    @Pattern(regexp = "([a-z0-9A-Z]+[-|.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}", message = "格式错误")
     private String email;
 
     @NotBlank
@@ -56,7 +56,7 @@ public class User implements Serializable {
     private Date lastPasswordResetTime;
 
     @ManyToMany
-    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
+    @JoinTable(name = "users_roles", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private Set<Role> roles;
 
     @OneToOne
@@ -67,5 +67,6 @@ public class User implements Serializable {
     @JoinColumn(name = "dept_id")
     private Dept dept;
 
-    public @interface Update {}
+    public @interface Update {
+    }
 }

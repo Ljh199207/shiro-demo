@@ -7,11 +7,11 @@ import com.ljh.demo.system.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 /**
-* 用户表 Mapper
-*
-* @author ljh
-* @date 2019-10-29 11:40:15
-*/
+ * 用户表 Mapper
+ *
+ * @author ljh
+ * @date 2019-10-29 11:40:15
+ */
 public interface UserMapper extends BaseMapper<User> {
     /**
      * 通过用户名查找用户

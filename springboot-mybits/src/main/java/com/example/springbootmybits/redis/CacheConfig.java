@@ -19,13 +19,13 @@ public class CacheConfig {
     }
 
     @Bean
-    public RedisCacheManager redisCacheManager(){
+    public RedisCacheManager redisCacheManager() {
         RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate());
         return redisCacheManager;
     }
 
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(){
+    public RedisTemplate<Object, Object> redisTemplate() {
         RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<Object, Object>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory);
         redisTemplate.setEnableTransactionSupport(true);

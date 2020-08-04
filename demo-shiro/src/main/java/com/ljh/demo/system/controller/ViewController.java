@@ -51,7 +51,6 @@ public class ViewController extends BaseController {
     }
 
 
-
     @GetMapping("/")
     public String redirectIndex() {
         return "redirect:/index";
@@ -65,9 +64,10 @@ public class ViewController extends BaseController {
         // 获取实时的用户信息
         model.addAttribute("user", userService.findByName(user.getUsername()));
         model.addAttribute("permissions", authorizationInfo.getStringPermissions());
-        model.addAttribute("roles",authorizationInfo.getRoles());
+        model.addAttribute("roles", authorizationInfo.getRoles());
         return "index";
     }
+
     @GetMapping(FebsConstant.VIEW_PREFIX + "layout")
     public String layout() {
         return FebsUtil.view("layout");

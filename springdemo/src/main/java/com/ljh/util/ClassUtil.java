@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-public final  class ClassUtil {
+public final class ClassUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
 
     /**
@@ -26,7 +26,8 @@ public final  class ClassUtil {
 
     /**
      * 加载类
-     * @param className 类名
+     *
+     * @param className     类名
      * @param isInitialized 是否初始化
      * @return
      */

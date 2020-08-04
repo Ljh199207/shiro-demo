@@ -24,6 +24,7 @@ import java.util.*;
 public class LogServiceImpl extends ServiceImpl<LogMapper, SystemLog> implements LogService {
     @Autowired
     private ObjectMapper objectMapper;
+
     @Override
     public void saveLog(ProceedingJoinPoint point, Method method, HttpServletRequest request, String operation, long start) throws InterruptedException {
         SystemLog systemLog = new SystemLog();

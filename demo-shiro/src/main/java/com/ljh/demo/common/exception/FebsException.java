@@ -5,7 +5,7 @@ package com.ljh.demo.common.exception;
  *
  * @author MrBird
  */
-public class FebsException extends RuntimeException  {
+public class FebsException extends RuntimeException {
 
     private static final long serialVersionUID = -994962710559017255L;
 

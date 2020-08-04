@@ -4,7 +4,7 @@ package com.example.springbootmybits.magic;
  * @author ljh
  * @date 2019-11-19 09:46
  */
-public enum  FileType {
+public enum FileType {
     /**
      * JPEG
      */
@@ -156,6 +156,7 @@ public enum  FileType {
     public String getValue() {
         return value;
     }
+
     public String getKey() {
         return key;
     }

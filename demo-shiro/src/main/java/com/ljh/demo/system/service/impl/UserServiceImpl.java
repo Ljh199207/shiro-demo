@@ -42,6 +42,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private UserRoleServiceImpl userRoleService;
     @Autowired
     private ShiroRealm shiroRealm;
+
     @Override
     public IPage<User> findUsers(QueryRequest request, User user) {
         Page<User> page = new Page<>(request.getPageNum(), request.getPageSize());
@@ -76,10 +77,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Transactional(rollbackFor = Exception.class)
     public void updateUser(User user) {
         this.saveOrUpdate(user);
-        userRoleService.remove(new LambdaQueryWrapper<UserRole>().eq(UserRole::getUserId,user.getId()));
+        userRoleService.remove(new LambdaQueryWrapper<UserRole>().eq(UserRole::getUserId, user.getId()));
         String[] roles = user.getRoleId().split(StringPool.COMMA);
-        setUserRoles(user,roles);
+        setUserRoles(user, roles);
     }
+
     private void setUserRoles(User user, String[] roles) {
         List<UserRole> userRoles = new ArrayList<>();
         Arrays.stream(roles).forEach(roleId -> {
@@ -94,6 +96,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             shiroRealm.clearCache();
         }
     }
+
     @Override
     @Transactional
     public void deleteUser(User user) {

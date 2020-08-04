@@ -63,7 +63,7 @@ public class SqlTest {
 
     @Test
     public void testQuery3() {
-        List<Map<String, Object>> abc = peopleRepository.getUserByRealName1("abc");
-        System.out.println(abc);
+        //   List<Map<String, Object>> abc = peopleRepository.getUserByRealName1("abc");
+        ///  System.out.println(abc);
     }
 }

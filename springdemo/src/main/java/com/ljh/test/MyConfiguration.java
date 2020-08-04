@@ -10,6 +10,7 @@ public class MyConfiguration {
     /**
      * singleton
      * prototype
+     *
      * @return
      */
     @Bean

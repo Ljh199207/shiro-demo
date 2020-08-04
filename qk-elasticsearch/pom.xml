@@ -88,7 +88,6 @@
         </dependency>
 
 
-
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -106,7 +105,13 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
-
+        <!-- logback 推送日志文件到logstash -->
+        <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>6.3</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>

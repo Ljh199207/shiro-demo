@@ -22,10 +22,10 @@ public class ItemConverterTest {
         Sku sku = new Sku(2L, "phone12345", 1000000);
         SkuDTO skuDTO = ItemConverter.INSTANCE.domain2dto(item, sku);
         assertNotNull(skuDTO);
-        assertEquals(skuDTO.getSkuId(),sku.getId());
-        assertEquals(skuDTO.getSkuCode(),sku.getCode());
-        assertEquals(skuDTO.getSkuPrice(),sku.getPrice());
-        assertEquals(skuDTO.getItemId(),item.getId());
-        assertEquals(skuDTO.getItemName(),item.getTitle());
+        assertEquals(skuDTO.getSkuId(), sku.getId());
+        assertEquals(skuDTO.getSkuCode(), sku.getCode());
+        assertEquals(skuDTO.getSkuPrice(), sku.getPrice());
+        assertEquals(skuDTO.getItemId(), item.getId());
+        assertEquals(skuDTO.getItemName(), item.getTitle());
     }
 }
