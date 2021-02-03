@@ -60,10 +60,10 @@ public class RedisHashTests {
         String value1 = "value1";
         String value2 = "value2";
         String value3 = "value3";
-       /* redisTemplate.opsForHash().delete(key);
+        redisTemplate.opsForHash().delete(key);
         redisTemplate.opsForHash().put(key, hashKey1, value1);
         redisTemplate.opsForHash().put(key, hashKey2, value2);
-        redisTemplate.opsForHash().put(key, hashKey3, value3);*/
+        redisTemplate.opsForHash().put(key, hashKey3, value3);
         redisTemplate.opsForHash().delete(key, hashKey1);
         Map<Object, Object> map = redisTemplate.opsForHash().entries(key);
         System.out.println(map);

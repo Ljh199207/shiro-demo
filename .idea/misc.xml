@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FindBugsConfigurable">
+    <option name="make" value="true" />
+    <option name="effort" value="default" />
+    <option name="priority" value="Medium" />
+    <option name="excludeFilter" value="" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/demo-shiro/pom.xml" />
+        <option value="$PROJECT_DIR$/shiroauthen/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-config/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybits/pom.xml" />
+        <option value="$PROJECT_DIR$/shiro-authorization/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-security/pom.xml" />
+        <option value="$PROJECT_DIR$/springsecurity01/pom.xml" />
+        <option value="$PROJECT_DIR$/springsecuritymybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-springsecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/oauth2-authorization/pom.xml" />
+        <option value="$PROJECT_DIR$/springredis/pom.xml" />
+        <option value="$PROJECT_DIR$/demojava/pom.xml" />
+        <option value="$PROJECT_DIR$/hell/pom.xml" />
+        <option value="$PROJECT_DIR$/qk-fes/pom.xml" />
+        <option value="$PROJECT_DIR$/qk-elasticsearch/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-internal-example/pom.xml" />
+        <option value="$PROJECT_DIR$/../../迅雷下载/mybatis-3-master/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-internal-example/mybatis-3-master/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SuppressionsComponent">
+    <option name="suppComments" value="[]" />
   </component>
 </project>

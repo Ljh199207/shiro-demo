@@ -6,15 +6,50 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="qk-elasticsearch" />
+        <module name="oauth2-authorization" />
+        <module name="demo" />
+        <module name="springsecurity01" />
+        <module name="springredis" />
+        <module name="mybaits01" />
+        <module name="udp" />
+        <module name="demojava" />
+        <module name="spring-security" />
+        <module name="springboot-config" />
+        <module name="hell" />
+        <module name="shiroauthen" />
+        <module name="mybatis" />
+        <module name="springdemo" />
+        <module name="shiro-authorization" />
+        <module name="demo-springsecurity" />
+        <module name="shiro-chapter2" />
         <module name="shirochapter2" />
+        <module name="mybatis-my" />
+        <module name="springboot-mybits" />
         <module name="shiro-chapter1" />
         <module name="demo-shiro" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo-shiro" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="demo-springsecurity" options="-parameters" />
+      <module name="demojava" options="-parameters" />
+      <module name="hell" options="-parameters" />
+      <module name="mybaits01" options="-parameters" />
+      <module name="mybatis-internal-example" options="-parameters" />
+      <module name="oauth2-authorization" options="-parameters" />
+      <module name="qk-elasticsearch" options="-parameters" />
+      <module name="shiro-authorization" options="" />
+      <module name="shiroauthen" options="" />
+      <module name="spring-security" options="-parameters" />
+      <module name="springboot-config" options="-parameters" />
+      <module name="springboot-mybits" options="" />
+      <module name="springredis" options="-parameters" />
+      <module name="springsecurity01" options="-parameters" />
+      <module name="udp" options="-parameters" />
     </option>
   </component>
 </project>

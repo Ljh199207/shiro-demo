@@ -30,7 +30,7 @@
       <option name="IGNORE_JAVADOC_PERIOD" value="true" />
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
-      <option name="myAdditionalJavadocTags" value="date" />
+      <option name="myAdditionalJavadocTags" value="date,JsonNaming，用于指定一个命名策略，作用于类或者属性上。Jackson自带了多种命名策略，你可以实现自己的命名策略，比如输出的key,JsonFormat，用于日期格式化,JsonIgnoreProperties，忽略一组属性，作用于类上，比如JsonIgnoreProperties({,Jsonlgnore，作用在属性上，用来忽略此属性。,JsonProperty，作用在属性上，用来为JSON" />
     </inspection_tool>
   </profile>
 </component>

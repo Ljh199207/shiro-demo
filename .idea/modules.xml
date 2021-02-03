@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mybatis-my/mybatis-my.iml" filepath="$PROJECT_DIR$/mybatis-my/mybatis-my.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth2-authorization/oauth2-authorization.iml" filepath="$PROJECT_DIR$/oauth2-authorization/oauth2-authorization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-chapter1/shiro-chapter1.iml" filepath="$PROJECT_DIR$/shiro-chapter1/shiro-chapter1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-chapter2/shiro-chapter2.iml" filepath="$PROJECT_DIR$/shiro-chapter2/shiro-chapter2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/shiro-ljh.iml" filepath="$PROJECT_DIR$/.idea/shiro-ljh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springdemo/springdemo.iml" filepath="$PROJECT_DIR$/springdemo/springdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/udp.iml" filepath="$PROJECT_DIR$/udp.iml" />
+    </modules>
+  </component>
+</project>
